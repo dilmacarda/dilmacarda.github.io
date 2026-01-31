@@ -14,15 +14,12 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
-
     <nav class="menu">
       <a href="index.html" class="active">Home</a>
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="cart.html">
-        Cart <span id="cartCount" class="cart-badge">0</span>
-      </a>
+      <a href="cart.html">Cart <span id="cartCount" class="cart-badge">0</span></a>
     </nav>
   </div>
 </header>
@@ -41,9 +38,9 @@
       </div>
     </div>
 
+    <!-- ✅ eski görünüm: resim cover ile dolacak -->
     <div class="hero-media">
-      <!-- class="hero-img" çok önemli -->
-      <img class="hero-img" src="images/hero.jpg" alt="Style & Trend Hero">
+      <img src="images/hero.jpg" alt="Style & Trend Hero">
     </div>
 
   </div>
@@ -86,6 +83,132 @@
   </div>
 </section>
 
+<!-- WHY US -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Why Style & Trend?</h2>
+    <p class="section-sub">Simple principles that keep our drops consistent.</p>
+
+    <div class="grid-4">
+      <div class="small-card">
+        <strong>Quality First</strong>
+        <span>Better fabric, better stitching, better finishing.</span>
+      </div>
+      <div class="small-card">
+        <strong>Clean Design</strong>
+        <span>Minimal palette, strong silhouette, easy to style.</span>
+      </div>
+      <div class="small-card">
+        <strong>Comfort + Fit</strong>
+        <span>Relaxed shapes that still look sharp.</span>
+      </div>
+      <div class="small-card">
+        <strong>Focused Drops</strong>
+        <span>Fewer pieces, better wardrobe building.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS PREVIEW -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Featured Products</h2>
+    <p class="section-sub">A quick preview from the collection.</p>
+
+    <div class="products-grid">
+      <div class="card">
+        <div class="product-img"><img src="images/urun1.jpg" alt="Oversized T-Shirt"></div>
+        <div class="card-body">
+          <h3>Oversized T-Shirt</h3>
+          <div class="price">$29.99</div>
+          <p class="product-desc">Heavyweight cotton, relaxed fit, everyday essential.</p>
+          <a class="btn btn-primary" href="products.html">Shop</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-img"><img src="images/urun2.jpg" alt="Luxury Jacket"></div>
+        <div class="card-body">
+          <h3>Luxury Jacket</h3>
+          <div class="price">$99.99</div>
+          <p class="product-desc">Structured layering piece with premium finishing.</p>
+          <a class="btn btn-primary" href="products.html">Shop</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-img"><img src="images/urun3.jpg" alt="Premium Sneakers"></div>
+        <div class="card-body">
+          <h3>Premium Sneakers</h3>
+          <div class="price">$79.99</div>
+          <p class="product-desc">Minimal design, comfortable sole, clean street look.</p>
+          <a class="btn btn-primary" href="products.html">Shop</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;">
+      <a class="btn btn-light" href="products.html">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Editorial Picks</h2>
+    <p class="section-sub">Simple outfit inspiration.</p>
+
+    <div class="grid-2">
+      <div class="media"><img src="images/edit1.jpg" alt="Edit 1"></div>
+      <div class="media"><img src="images/edit2.jpg" alt="Edit 2"></div>
+      <div class="media"><img src="images/edit3.jpg" alt="Edit 3"></div>
+      <div class="media"><img src="images/edit4.jpg" alt="Edit 4"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Quick FAQ</h2>
+    <p class="section-sub">Before you shop, here are the basics.</p>
+
+    <div class="faq">
+      <details>
+        <summary>Do you do limited drops?</summary>
+        <p>Yes. We prefer focused releases rather than massive collections.</p>
+      </details>
+      <details>
+        <summary>Where are you based?</summary>
+        <p>We are based in Istanbul, Turkey.</p>
+      </details>
+      <details>
+        <summary>How do I choose my size?</summary>
+        <p>Message us on the Contact page with your height/weight and preferred fit.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section">
+  <div class="container">
+    <div class="newsletter">
+      <div>
+        <h2 class="section-title" style="margin-bottom:4px;">Get the Drop</h2>
+        <p class="section-sub" style="margin:0;">New arrivals & limited releases — no spam.</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Subscribed!');" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <input type="email" placeholder="Email address" required>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer-inner">
     <div>© 2026 Style & Trend</div>
@@ -98,13 +221,12 @@
 </footer>
 
 <script>
-  function getCart() {
+  function getCart(){
     return JSON.parse(localStorage.getItem("cart") || "[]");
   }
-  function updateCartCount() {
+  function updateCartCount(){
     const el = document.getElementById("cartCount");
-    if (!el) return;
-    el.textContent = getCart().length;
+    if(el) el.textContent = getCart().length;
   }
   window.addEventListener("load", updateCartCount);
 </script>
