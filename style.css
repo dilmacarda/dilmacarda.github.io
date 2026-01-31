@@ -1,6 +1,3 @@
-/* ===============================
-   GLOBAL STYLES
-=============================== */
 * {
   margin: 0;
   padding: 0;
@@ -9,268 +6,186 @@
 }
 
 body {
-  background-color: #121212;
-  color: #fff;
-  line-height: 1.6;
+  background: #f6f6f6;
+  color: #222;
 }
 
-/* ===============================
-   HEADER & NAVBAR
-=============================== */
-header {
-  background-color: #1e1e1e;
-  padding: 20px 40px;
+/* NAVBAR */
+.navbar {
+  background: #fff;
+  padding: 20px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
-  font-size: 1.8rem;
-  color: #ffcc00;
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ff5fa2;
 }
 
 nav a {
-  color: #fff;
+  margin-left: 25px;
   text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  transition: color 0.3s;
+  color: #333;
+  font-weight: 600;
 }
 
 nav a:hover {
-  color: #ffcc00;
+  color: #ff5fa2;
 }
 
-/* ===============================
-   HERO SECTION
-=============================== */
-.hero {
-  background: url('images/hero.jpg') center center/cover no-repeat;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+/* HERO */
+.hero-modern {
+  height: 75vh;
+  background: url("images/hero.jpg") center/cover no-repeat;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero::after {
-  content: "";
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.45);
 }
 
-.hero-content {
+.hero-text {
   position: relative;
-  z-index: 1;
   color: #fff;
+  text-align: center;
+  max-width: 700px;
 }
 
-.hero-content h1 {
+.hero-text h1 {
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
 }
 
-.hero-content button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 10px;
-  background-color: #ffcc00;
-  color: #121212;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.hero-content button:hover {
-  background-color: #e6b800;
-}
-
-/* ===============================
-   PRODUCTS SECTION
-=============================== */
-.products-section {
-  padding: 60px 20px;
-  background-color: #121212;
+.hero-btn {
+  background: #ff5fa2;
   color: #fff;
-  text-align: center;
-}
-
-.products-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-.products-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  align-items: stretch; /* Kartlar aynı hizada */
-}
-
-.product-card {
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  padding: 20px;
-  width: 250px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.product-card img {
-  width: 100%;
-  height: 300px;       /* Sabit yükseklik */
-  object-fit: cover;   /* Kart boyutuna kırp */
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.product-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.product-card .price {
-  font-size: 1rem;
-  color: #ffcc00;
-  margin-bottom: 15px;
-}
-
-.product-card button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #ffcc00;
-  color: #121212;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
 }
 
-.product-card button:hover {
-  background-color: #e6b800;
-}
-
-/* ===============================
-   COLLECTIONS SECTION
-=============================== */
-.collections-section {
-  padding: 60px 20px;
+/* CATEGORIES */
+.categories {
+  padding: 70px 40px;
   text-align: center;
 }
 
-.collections-section h2 {
+.categories h2 {
   font-size: 2rem;
   margin-bottom: 40px;
 }
 
-.collections-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
 }
 
-.collection-card {
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  width: 300px;
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+.category-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
-.collection-card:hover {
+.category-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-.collection-card img {
+.category-card img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;  /* Kart boyutuna kırp */
-  border-radius: 8px;
-  margin-bottom: 15px;
+  height: 220px;
+  object-fit: cover;
 }
 
-.collection-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.category-card span {
+  display: block;
+  padding: 15px;
+  font-weight: bold;
 }
 
-.collection-card p {
-  font-size: 1rem;
-  color: #ccc;
-}
-
-/* ===============================
-   ABOUT SECTION
-=============================== */
-.about-section {
-  padding: 60px 20px;
+/* FEATURED */
+.featured {
+  padding: 70px 40px;
+  background: #fff;
   text-align: center;
 }
 
-.about-section h2 {
+.featured h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-.about-section p {
-  font-size: 1rem;
+.featured-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.featured-card {
+  width: 260px;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
   margin-bottom: 15px;
 }
 
-/* ===============================
-   FOOTER
-=============================== */
+.featured-card h3 {
+  margin-bottom: 8px;
+}
+
+/* NEWSLETTER */
+.newsletter {
+  padding: 70px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ff5fa2, #ff8fd1);
+  color: #fff;
+}
+
+.newsletter input {
+  padding: 14px;
+  width: 260px;
+  border-radius: 30px;
+  border: none;
+  margin-right: 10px;
+}
+
+.newsletter button {
+  padding: 14px 25px;
+  border-radius: 30px;
+  border: none;
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* FOOTER */
 footer {
-  background-color: #1e1e1e;
+  background: #111;
   color: #fff;
   text-align: center;
-  padding: 25px 0;
-  margin-top: 50px;
-}
-
-/* ===============================
-   CART / COUNT
-=============================== */
-.cart-count {
-  background-color: #ffcc00;
-  color: #121212;
-  border-radius: 50%;
-  padding: 2px 8px;
-  font-size: 0.9rem;
-  vertical-align: top;
-  margin-left: 5px;
-}
-
-/* ===============================
-   RESPONSIVE
-=============================== */
-@media (max-width: 900px) {
-  .products-container,
-  .collections-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
+  padding: 25px;
 }
