@@ -16,6 +16,9 @@
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html" class="active">Contact</a>
+      <a href="cart.html">
+        Cart <span id="cartCount" class="cart-badge">0</span>
+      </a>
     </nav>
   </div>
 </header>
@@ -26,27 +29,9 @@
     <p class="section-sub">Questions about sizing, shipping, collaborations or press? Send a message.</p>
 
     <div class="grid-3">
-      <div class="card">
-        <div class="card-body">
-          <h3>Customer Support</h3>
-          <p><strong>support@styletrend.com</strong></p>
-          <p>Response time: 24–48 hours</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h3>Phone</h3>
-          <p><strong>+90 532 847 29 61</strong></p>
-          <p>Mon–Fri · 10:00–18:00</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h3>Business</h3>
-          <p><strong>biz@styletrend.com</strong></p>
-          <p>Press / Wholesale / Collaboration</p>
-        </div>
-      </div>
+      <div class="card"><div class="card-body"><h3>Customer Support</h3><p><strong>support@styletrend.com</strong></p><p>Response time: 24–48 hours</p></div></div>
+      <div class="card"><div class="card-body"><h3>Phone</h3><p><strong>+90 532 847 29 61</strong></p><p>Mon–Fri · 10:00–18:00</p></div></div>
+      <div class="card"><div class="card-body"><h3>Business</h3><p><strong>biz@styletrend.com</strong></p><p>Press / Wholesale / Collaboration</p></div></div>
     </div>
 
     <div class="section" style="padding:18px 0;">
@@ -85,22 +70,6 @@
       </div>
     </div>
 
-    <h3 class="section-title" style="font-size:18px;">FAQ</h3>
-    <div class="faq">
-      <details>
-        <summary>Do you ship internationally?</summary>
-        <p>Yes. Add items to cart and proceed to checkout to see available destinations.</p>
-      </details>
-      <details>
-        <summary>How do I choose the right size?</summary>
-        <p>Send your height/weight and preferred fit (regular/oversized). We’ll guide you.</p>
-      </details>
-      <details>
-        <summary>Collaboration requests?</summary>
-        <p>Send links + audience + concept. We review weekly.</p>
-      </details>
-    </div>
-
   </div>
 </section>
 
@@ -114,6 +83,18 @@
     </div>
   </div>
 </footer>
+
+<script>
+  function getCart() {
+    return JSON.parse(localStorage.getItem("cart") || "[]");
+  }
+  function updateCartCount() {
+    const el = document.getElementById("cartCount");
+    if (!el) return;
+    el.textContent = getCart().length;
+  }
+  window.addEventListener("load", updateCartCount);
+</script>
 
 </body>
 </html>
