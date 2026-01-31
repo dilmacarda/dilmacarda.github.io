@@ -23,7 +23,7 @@ body{
 }
 
 /* Container */
-.section{ padding: 44px 18px; }
+.section{ padding: 46px 18px; }
 .container{ max-width: var(--max); margin: 0 auto; }
 
 /* Header */
@@ -109,7 +109,11 @@ body{
 }
 .btn-light:hover{ background:#e9e9e9; }
 
-/* HERO */
+/* TITLES */
+.section-title{ font-size: 24px; margin-bottom: 10px; }
+.section-sub{ color: var(--muted); margin-bottom: 18px; }
+
+/* HERO (KIRPMA YOK, ZOOM YOK) */
 .hero{
   background: var(--white);
   border-bottom: 1px solid var(--line);
@@ -128,23 +132,29 @@ body{
 .hero-actions{ margin-top: 16px; display:flex; gap:10px; flex-wrap:wrap; }
 
 .hero-media{
-  background:#eaeaea;
+  background:#f0f0f0;
   border-radius: var(--radius);
-  overflow:hidden;
-  height: 280px;
-  box-shadow: var(--shadow);
   border:1px solid var(--line);
-}
-.hero-media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
+  box-shadow: var(--shadow);
+
+  /* daha büyük: “tam görünmüyor” hissini azaltır */
+  height: 360px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
 
-/* Titles */
-.section-title{ font-size: 24px; margin-bottom: 10px; }
-.section-sub{ color: var(--muted); margin-bottom: 18px; }
+.hero-media img{
+  /* EN KRİTİK: kırpma/zoom yok */
+  width:auto;
+  height:auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display:block;
+}
 
 /* Cards */
 .grid-3{
@@ -229,71 +239,54 @@ body{
 .price{ font-weight: 800; margin-top: 4px; }
 .product-desc{ margin-top: 8px; }
 
-/* Cart list */
-.cart-list{ list-style:none; margin-top: 12px; display:grid; gap: 10px; }
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap: 12px;
-  padding: 12px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fafafa;
-}
-.cart-item strong{ display:block; }
-.cart-item span{ color: var(--muted); font-size: 14px; }
-.cart-item button{
-  border:none;
+/* Extra: chips + small grids for longer homepage */
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 12px; }
+.chip{
   background:#f0f0f0;
-  padding: 8px 10px;
-  border-radius: 10px;
-  cursor:pointer;
-  font-weight:700;
-}
-.cart-item button:hover{ background:#e8e8e8; }
-.total{
-  margin-top: 14px;
-  font-weight: 900;
-  font-size: 18px;
-}
-
-/* About/Contact split */
-.split{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 14px;
-  align-items:start;
-}
-.stats{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 12px;
-}
-.stat{
-  background: var(--white);
   border:1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color:#333;
 }
-.stat strong{ display:block; }
-.stat span{ color: var(--muted); font-size: 13px; }
-
-.steps{
+.grid-4{
   display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
-.step{
+.small-card{
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 12px;
+  padding: 14px;
 }
-.step strong{ display:block; margin-bottom: 4px; }
+.small-card strong{ display:block; margin-bottom: 6px; }
+.small-card span{ color: var(--muted); font-size: 13px; }
 
+/* Newsletter */
+.newsletter{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.newsletter input{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border:1px solid var(--line);
+  min-width: 240px;
+  outline:none;
+}
+
+/* FAQ */
 .faq details{
   background: var(--white);
   border:1px solid var(--line);
@@ -305,28 +298,7 @@ body{
 .faq summary{ cursor:pointer; font-weight:700; }
 .faq p{ color: var(--muted); margin-top: 8px; }
 
-/* Forms */
-.form label{ display:block; font-weight:700; font-size: 13px; margin-top: 10px; }
-input, textarea{
-  width:100%;
-  margin-top: 6px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border:1px solid var(--line);
-  outline:none;
-  background: var(--white);
-}
-input:focus, textarea:focus{ border-color:#cfcfcf; }
-
-.map{
-  width:100%;
-  height: 360px;
-  border:0;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-/* Toast (Added to cart) */
+/* Toast */
 .toast{
   position: fixed;
   right: 18px;
@@ -382,11 +354,11 @@ input:focus, textarea:focus{ border-color:#cfcfcf; }
 /* Responsive */
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
+  .hero h1{ font-size: 34px; }
+  .hero-media{ height: 260px; }
+
   .grid-3{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
+  .grid-4{ grid-template-columns: 1fr; }
   .banner{ grid-template-columns: 1fr; }
-  .split{ grid-template-columns: 1fr; }
-  .steps{ grid-template-columns: 1fr; }
-  .stats{ grid-template-columns: 1fr; }
-  .hero h1{ font-size: 34px; }
 }
