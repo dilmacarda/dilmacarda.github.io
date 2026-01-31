@@ -1,210 +1,94 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  background: #f4f4f6;
-  color: #1e1e1e;
-  line-height: 1.6;
+  background: #f5f5f5;
+  color: #222;
 }
 
-/* NAVBAR */
 .navbar {
-  background: #ffffff;
-  padding: 18px 60px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  padding: 20px 60px;
+  background: white;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 800;
+.navbar a {
+  margin-left: 20px;
   text-decoration: none;
-  color: #111;
+  color: black;
+  font-weight: 500;
 }
 
-.logo span {
-  color: #ff5fa2;
-}
-
-nav a {
-  margin-left: 30px;
+.logo a {
+  font-size: 24px;
   text-decoration: none;
-  color: #333;
-  font-weight: 600;
+  color: black;
 }
 
-/* HERO */
 .hero {
-  height: 420px;
-  background: url("images/hero.jpg") center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-content {
-  background: rgba(0,0,0,0.55);
-  padding: 40px 60px;
-  border-radius: 18px;
-  color: #fff;
+  padding: 80px;
   text-align: center;
 }
 
-.hero-content h1 {
-  font-size: 2.8rem;
-}
-
-.hero-content p {
-  margin-top: 10px;
-  opacity: 0.9;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 34px;
-  background: #ff5fa2;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-/* SECTIONS */
-section {
-  padding: 80px 60px;
-}
-
-/* TITLES */
-section h2,
-section h1 {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* CATEGORIES */
-.category-grid {
+.styles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 30px;
-  max-width: 1100px;
-  margin: auto;
+  padding: 60px;
 }
 
-.category-card {
-  height: 280px;
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-}
-
-.category-card img {
+.style-card img {
   width: 100%;
-  height: 100%;
+  height: 300px;
   object-fit: cover;
+  border-radius: 20px;
 }
 
-.category-card span {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 700;
+.why-us,
+.testimonials,
+.newsletter {
+  padding: 80px;
+  text-align: center;
 }
 
-/* PRODUCTS */
-.products-page {
-  max-width: 1200px;
-  margin: auto;
-}
-
+.why-grid,
+.testimonial-grid,
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
-/* PRODUCT CARD */
 .product-card {
-  background: #ffffff;
+  background: white;
+  padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  overflow: hidden;
+  text-align: center;
 }
 
-.product-image {
-  height: 240px;        /* SABİT */
-  overflow: hidden;
-}
-
-.product-image img {
+.product-card img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;    /* ORAN BOZULMAZ */
-  display: block;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
-.product-info {
-  padding: 22px;
-}
-
-.product-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-.price {
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.product-info button {
-  padding: 10px 22px;
-  border-radius: 25px;
+button {
+  padding: 10px 20px;
   border: none;
-  background: #111;
-  color: #fff;
-  font-weight: 700;
+  border-radius: 20px;
+  background: black;
+  color: white;
   cursor: pointer;
 }
 
-/* ABOUT */
-.about-page {
-  max-width: 800px;
-  margin: auto;
-  font-size: 1.1rem;
-}
-
-/* CONTACT */
-.contact-page {
-  text-align: center;
-}
-
-/* FOOTER */
 footer {
-  background: #111;
-  color: #fff;
+  padding: 40px;
   text-align: center;
-  padding: 30px;
-  margin-top: 80px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  section {
-    padding: 60px 25px;
-  }
-
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
 }
