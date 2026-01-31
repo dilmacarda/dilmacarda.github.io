@@ -1,83 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Style & Trend</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Optional: nicer typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="navbar">
-  <h1 class="logo"><a href="index.html">Style<span>&</span>Trend</a></h1>
-  <nav>
-    <a href="index.html">Home</a>
+<header class="nav">
+  <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
+
+  <nav class="menu">
+    <a href="index.html" class="active">Home</a>
     <a href="products.html">Products</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h2>Modern Fashion</h2>
-  <p>Streetwear · Luxury · Casual</p>
-</section>
+<!-- HERO / FULL BLEED -->
+<section class="hero-zara" aria-label="Hero">
+  <img class="hero-img" src="images/hero.jpg" alt="Style & Trend hero">
+  <div class="hero-overlay"></div>
 
-<section class="styles">
-  <div class="style-card">
-    <img src="images/street.jpg">
-    <h3>Streetwear</h3>
-  </div>
-  <div class="style-card">
-    <img src="images/luxury.jpg">
-    <h3>Luxury</h3>
-  </div>
-  <div class="style-card">
-    <img src="images/casual.jpg">
-    <h3>Casual</h3>
-  </div>
-</section>
-
-<section class="why-us">
-  <h2>Why Choose Us</h2>
-  <div class="why-grid">
-    <div>
-      <h3>Premium Quality</h3>
-      <p>Carefully selected materials and modern design.</p>
-    </div>
-    <div>
-      <h3>Fast Delivery</h3>
-      <p>Worldwide shipping with trusted partners.</p>
-    </div>
-    <div>
-      <h3>Trusted Brand</h3>
-      <p>Thousands of happy customers.</p>
+  <div class="hero-copy">
+    <p class="hero-eyebrow">NEW SEASON 2026</p>
+    <h1 class="hero-title">THE EDIT</h1>
+    <p class="hero-sub">
+      Modern silhouettes. Clean lines. Everyday luxury.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="products.html">SHOP NEW IN</a>
+      <a class="btn btn-ghost" href="#categories">EXPLORE STYLES</a>
     </div>
   </div>
 </section>
 
-<section class="testimonials">
-  <h2>Customer Reviews</h2>
-  <div class="testimonial-grid">
-    <blockquote>
-      “Amazing quality and fast shipping.”
-      <span>— Alex M.</span>
-    </blockquote>
-    <blockquote>
-      “Minimal but premium feel.”
-      <span>— Sarah K.</span>
-    </blockquote>
+<!-- MARQUEE / STRIP -->
+<section class="strip">
+  <div class="strip-inner">
+    <span>FREE SHIPPING OVER $150</span>
+    <span>•</span>
+    <span>LIMITED DROPS WEEKLY</span>
+    <span>•</span>
+    <span>DESIGNED IN ISTANBUL</span>
+    <span>•</span>
+    <span>PREMIUM FABRICS</span>
   </div>
 </section>
 
-<section class="newsletter">
-  <h2>Join Our Newsletter</h2>
-  <p>Get exclusive offers & style tips</p>
-  <input type="email" placeholder="Your email">
-  <button class="btn">Subscribe</button>
+<!-- CATEGORIES (BIG CARDS) -->
+<section id="categories" class="section">
+  <div class="section-head">
+    <h2 class="section-title">SHOP BY STYLE</h2>
+    <a class="section-link" href="products.html">View all</a>
+  </div>
+
+  <div class="cat-grid">
+    <a class="cat-card" href="products.html" aria-label="Streetwear">
+      <img src="images/streetwear.jpg" alt="Streetwear">
+      <div class="cat-grad"></div>
+      <div class="cat-text">
+        <span class="cat-kicker">01</span>
+        <h3>Streetwear</h3>
+        <span class="cat-cta">Explore</span>
+      </div>
+    </a>
+
+    <a class="cat-card" href="products.html" aria-label="Luxury">
+      <img src="images/luxury.jpg" alt="Luxury">
+      <div class="cat-grad"></div>
+      <div class="cat-text">
+        <span class="cat-kicker">02</span>
+        <h3>Luxury</h3>
+        <span class="cat-cta">Explore</span>
+      </div>
+    </a>
+
+    <a class="cat-card" href="products.html" aria-label="Casual">
+      <img src="images/casual.jpg" alt="Casual">
+      <div class="cat-grad"></div>
+      <div class="cat-text">
+        <span class="cat-kicker">03</span>
+        <h3>Casual</h3>
+        <span class="cat-cta">Explore</span>
+      </div>
+    </a>
+  </div>
 </section>
 
-<footer>
-  © 2026 Style & Trend
+<!-- EDITORIAL GRID (ZARA-LIKE) -->
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-title">EDITORIAL PICKS</h2>
+    <span class="section-muted">Curated looks, minimal words.</span>
+  </div>
+
+  <div class="edit-grid">
+    <figure class="edit-item tall">
+      <img src="images/edit1.jpg" alt="Editorial 1">
+      <figcaption>
+        <span class="tag">LOOK 01</span>
+        <span class="cap">Clean layering</span>
+      </figcaption>
+    </figure>
+
+    <figure class="edit-item">
+      <img src="images/edit2.jpg" alt="Editorial 2">
+      <figcaption>
+        <span class="tag">LOOK 02</span>
+        <span class="cap">Monochrome</span>
+      </figcaption>
+    </figure>
+
+    <figure class="edit-item">
+      <img src="images/edit3.jpg" alt="Editorial 3">
+      <figcaption>
+        <span class="tag">LOOK 03</span>
+        <span class="cap">Everyday luxe</span>
+      </figcaption>
+    </figure>
+
+    <figure class="edit-item wide">
+      <img src="images/edit4.jpg" alt="Editorial 4">
+      <figcaption>
+        <span class="tag">LOOK 04</span>
+        <span class="cap">Street polish</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CAMPAIGN BANNER -->
+<section class="campaign" aria-label="Campaign">
+  <img src="images/campaign.jpg" alt="Campaign banner">
+  <div class="campaign-copy">
+    <p class="hero-eyebrow">LIMITED CAPSULE</p>
+    <h2 class="campaign-title">NIGHT SHIFT</h2>
+    <p class="campaign-sub">Sharp fits for late-city energy.</p>
+    <a class="btn btn-primary" href="products.html">SHOP CAPSULE</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section newsletter">
+  <div class="news-box">
+    <h2 class="section-title">GET THE DROP</h2>
+    <p class="section-muted">
+      New arrivals, limited releases and style notes — no spam.
+    </p>
+    <form class="news-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+      <input type="email" placeholder="Email address" required>
+      <button class="btn btn-primary" type="submit">SUBSCRIBE</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-left">
+      <a class="brand small" href="index.html">STYLE<span>&</span>TREND</a>
+      <p>© 2026 Style & Trend</p>
+    </div>
+    <div class="foot-right">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="products.html">Shop</a>
+    </div>
+  </div>
 </footer>
 
 </body>
