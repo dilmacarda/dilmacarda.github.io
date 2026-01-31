@@ -5,78 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products | Style & Trend</title>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header class="nav">
-  <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
-  <nav class="menu">
-    <a href="index.html">Home</a>
-    <a href="products.html" class="active">Products</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="nav-inner">
+    <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<section class="page-hero compact">
-  <img class="page-hero-img" src="images/campaign.jpg" alt="Products hero">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-copy">
-    <p class="kicker">SHOP</p>
-    <h1 class="page-title">Our Collection</h1>
-    <p class="page-sub">Clean silhouettes, premium feel, and focused drops.</p>
-  </div>
-</section>
-
 <section class="section">
-  <div class="section-head">
-    <h2 class="section-title">New In</h2>
-    <span class="section-muted">Curated essentials & statement pieces.</span>
-  </div>
+  <div class="container">
+    <h2 class="section-title">Our Collection</h2>
+    <p class="section-sub">Modern, stylish and affordable fashion pieces.</p>
 
-  <div class="products-grid">
-    <div class="product-card">
-      <div class="product-image">
-        <img src="images/urun1.jpg" alt="Oversized T-Shirt">
-      </div>
-      <div class="product-info">
-        <div class="product-top">
+    <div class="products-grid">
+      <div class="card">
+        <div class="product-img"><img src="images/urun1.jpg" alt="Oversized T-Shirt"></div>
+        <div class="card-body">
           <h3>Oversized T-Shirt</h3>
-          <p class="price">$29.99</p>
+          <div class="price">$29.99</div>
+          <p class="product-desc">Heavyweight cotton, relaxed fit, everyday essential.</p>
+          <button class="btn btn-primary" onclick="addToCart('Oversized T-Shirt', 29.99)">Add to Cart</button>
         </div>
-        <p class="product-desc">Heavyweight cotton, relaxed fit, everyday essential.</p>
-        <button class="btn btn-primary" onclick="addToCart('Oversized T-Shirt', 29.99)">Add to Cart</button>
       </div>
-    </div>
 
-    <div class="product-card">
-      <div class="product-image">
-        <img src="images/urun2.jpg" alt="Luxury Jacket">
-      </div>
-      <div class="product-info">
-        <div class="product-top">
+      <div class="card">
+        <div class="product-img"><img src="images/urun2.jpg" alt="Luxury Jacket"></div>
+        <div class="card-body">
           <h3>Luxury Jacket</h3>
-          <p class="price">$99.99</p>
+          <div class="price">$99.99</div>
+          <p class="product-desc">Structured layering piece with premium finishing.</p>
+          <button class="btn btn-primary" onclick="addToCart('Luxury Jacket', 99.99)">Add to Cart</button>
         </div>
-        <p class="product-desc">Structured layering piece with premium finishing.</p>
-        <button class="btn btn-primary" onclick="addToCart('Luxury Jacket', 99.99)">Add to Cart</button>
       </div>
-    </div>
 
-    <div class="product-card">
-      <div class="product-image">
-        <img src="images/urun3.jpg" alt="Premium Sneakers">
-      </div>
-      <div class="product-info">
-        <div class="product-top">
+      <div class="card">
+        <div class="product-img"><img src="images/urun3.jpg" alt="Premium Sneakers"></div>
+        <div class="card-body">
           <h3>Premium Sneakers</h3>
-          <p class="price">$79.99</p>
+          <div class="price">$79.99</div>
+          <p class="product-desc">Minimal design, comfortable sole, clean street look.</p>
+          <button class="btn btn-primary" onclick="addToCart('Premium Sneakers', 79.99)">Add to Cart</button>
         </div>
-        <p class="product-desc">Minimal design, comfortable sole, clean street look.</p>
-        <button class="btn btn-primary" onclick="addToCart('Premium Sneakers', 79.99)">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -84,13 +61,10 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="foot-left">
-      <a class="brand small" href="index.html">STYLE<span>&</span>TREND</a>
-      <p>© 2026 Style & Trend</p>
-    </div>
-    <div class="foot-right">
-      <a href="products.html">Shop</a>
-      <a href="about.html">About</a>
+    <div>© 2026 Style & Trend</div>
+    <div>
+      <a href="index.html">Home</a> ·
+      <a href="about.html">About</a> ·
       <a href="contact.html">Contact</a>
     </div>
   </div>
