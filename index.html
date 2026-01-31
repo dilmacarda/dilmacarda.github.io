@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Style & Trend</title>
   <link rel="stylesheet" href="style.css"/>
-  <!-- Optional: nicer typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -14,7 +13,6 @@
 
 <header class="nav">
   <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
-
   <nav class="menu">
     <a href="index.html" class="active">Home</a>
     <a href="products.html">Products</a>
@@ -23,17 +21,14 @@
   </nav>
 </header>
 
-<!-- HERO / FULL BLEED -->
-<section class="hero-zara" aria-label="Hero">
+<section class="hero-zara">
   <img class="hero-img" src="images/hero.jpg" alt="Style & Trend hero">
   <div class="hero-overlay"></div>
 
   <div class="hero-copy">
     <p class="hero-eyebrow">NEW SEASON 2026</p>
     <h1 class="hero-title">THE EDIT</h1>
-    <p class="hero-sub">
-      Modern silhouettes. Clean lines. Everyday luxury.
-    </p>
+    <p class="hero-sub">Modern silhouettes. Clean lines. Everyday luxury.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="products.html">SHOP NEW IN</a>
       <a class="btn btn-ghost" href="#categories">EXPLORE STYLES</a>
@@ -41,20 +36,15 @@
   </div>
 </section>
 
-<!-- MARQUEE / STRIP -->
 <section class="strip">
   <div class="strip-inner">
-    <span>FREE SHIPPING OVER $150</span>
-    <span>•</span>
-    <span>LIMITED DROPS WEEKLY</span>
-    <span>•</span>
-    <span>DESIGNED IN ISTANBUL</span>
-    <span>•</span>
+    <span>FREE SHIPPING OVER $150</span><span>•</span>
+    <span>LIMITED DROPS</span><span>•</span>
+    <span>DESIGNED IN ISTANBUL</span><span>•</span>
     <span>PREMIUM FABRICS</span>
   </div>
 </section>
 
-<!-- CATEGORIES (BIG CARDS) -->
 <section id="categories" class="section">
   <div class="section-head">
     <h2 class="section-title">SHOP BY STYLE</h2>
@@ -94,7 +84,6 @@
   </div>
 </section>
 
-<!-- EDITORIAL GRID (ZARA-LIKE) -->
 <section class="section">
   <div class="section-head">
     <h2 class="section-title">EDITORIAL PICKS</h2>
@@ -104,40 +93,27 @@
   <div class="edit-grid">
     <figure class="edit-item tall">
       <img src="images/edit1.jpg" alt="Editorial 1">
-      <figcaption>
-        <span class="tag">LOOK 01</span>
-        <span class="cap">Clean layering</span>
-      </figcaption>
+      <figcaption><span class="tag">LOOK 01</span><span class="cap">Clean layering</span></figcaption>
     </figure>
 
     <figure class="edit-item">
       <img src="images/edit2.jpg" alt="Editorial 2">
-      <figcaption>
-        <span class="tag">LOOK 02</span>
-        <span class="cap">Monochrome</span>
-      </figcaption>
+      <figcaption><span class="tag">LOOK 02</span><span class="cap">Monochrome</span></figcaption>
     </figure>
 
     <figure class="edit-item">
       <img src="images/edit3.jpg" alt="Editorial 3">
-      <figcaption>
-        <span class="tag">LOOK 03</span>
-        <span class="cap">Everyday luxe</span>
-      </figcaption>
+      <figcaption><span class="tag">LOOK 03</span><span class="cap">Everyday luxe</span></figcaption>
     </figure>
 
     <figure class="edit-item wide">
       <img src="images/edit4.jpg" alt="Editorial 4">
-      <figcaption>
-        <span class="tag">LOOK 04</span>
-        <span class="cap">Street polish</span>
-      </figcaption>
+      <figcaption><span class="tag">LOOK 04</span><span class="cap">Street polish</span></figcaption>
     </figure>
   </div>
 </section>
 
-<!-- CAMPAIGN BANNER -->
-<section class="campaign" aria-label="Campaign">
+<section class="campaign">
   <img src="images/campaign.jpg" alt="Campaign banner">
   <div class="campaign-copy">
     <p class="hero-eyebrow">LIMITED CAPSULE</p>
@@ -147,13 +123,10 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
 <section class="section newsletter">
   <div class="news-box">
     <h2 class="section-title">GET THE DROP</h2>
-    <p class="section-muted">
-      New arrivals, limited releases and style notes — no spam.
-    </p>
+    <p class="section-muted">New arrivals & limited releases — no spam.</p>
     <form class="news-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
       <input type="email" placeholder="Email address" required>
       <button class="btn btn-primary" type="submit">SUBSCRIBE</button>
