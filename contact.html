@@ -1,35 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Style & Trend</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="navbar">
-  <h1 class="logo"><a href="index.html">Style<span>&</span>Trend</a></h1>
-  <nav>
+<header class="nav">
+  <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
+  <nav class="menu">
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </nav>
 </header>
 
-<section class="contact-page">
-  <h1>Contact Us</h1>
-
-  <form class="contact-form">
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Message"></textarea>
-    <button class="btn">Send</button>
-  </form>
+<!-- CONTACT HERO -->
+<section class="page-hero compact">
+  <img class="page-hero-img" src="images/contact-hero.jpg" alt="Contact hero background">
+  <div class="page-hero-overlay light"></div>
+  <div class="page-hero-copy dark">
+    <p class="kicker">CONTACT</p>
+    <h1 class="page-title">Let’s Talk</h1>
+    <p class="page-sub">
+      Questions about sizing, shipping, collaborations, or press? Send a message and we’ll get back to you.
+    </p>
+  </div>
 </section>
 
-<footer>
-  © 2026 Style & Trend
+<section class="section">
+  <div class="contact-grid">
+    <div class="card">
+      <h3>Customer Support</h3>
+      <p class="muted">Email</p>
+      <p><strong>support@styletrend.com</strong></p>
+      <p class="muted">Response time: 24–48 hours</p>
+    </div>
+    <div class="card">
+      <h3>Phone</h3>
+      <p class="muted">Turkey</p>
+      <p><strong>+90 532 847 29 61</strong></p>
+      <p class="muted">Mon–Fri · 10:00–18:00</p>
+    </div>
+    <div class="card">
+      <h3>Social</h3>
+      <p class="muted">Instagram</p>
+      <p><strong>@styletrend</strong></p>
+      <p class="muted">DM for quick questions</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORM + MAP -->
+<section class="section soft">
+  <div class="split">
+    <div class="card form-card">
+      <h2 class="section-title">Send a Message</h2>
+      <p class="section-muted">We’ll reply as soon as possible.</p>
+
+      <form class="form" onsubmit="event.preventDefault(); alert('Message sent!');">
+        <div class="row">
+          <label>
+            <span>Name</span>
+            <input type="text" placeholder="Your name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" placeholder="you@email.com" required>
+          </label>
+        </div>
+
+        <label>
+          <span>Subject</span>
+          <input type="text" placeholder="Shipping / sizing / collaboration...">
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea placeholder="Write your message..." rows="6" required></textarea>
+        </label>
+
+        <button class="btn btn-primary" type="submit">SEND</button>
+      </form>
+    </div>
+
+    <div class="map-card">
+      <div class="map-head">
+        <h3>Our Base</h3>
+        <p class="section-muted">Tuzla · Istanbul</p>
+      </div>
+      <iframe
+        class="map"
+        src="https://www.google.com/maps?q=Tuzla%20Istanbul&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-title">Contact FAQ</h2>
+    <span class="section-muted">Before you send, maybe this helps.</span>
+  </div>
+
+  <div class="faq">
+    <details>
+      <summary>Do you ship internationally?</summary>
+      <p>Yes. Add items to cart and proceed to checkout to see available destinations.</p>
+    </details>
+    <details>
+      <summary>How do I choose the right size?</summary>
+      <p>Message us with your height/weight and preferred fit (regular/oversized). We’ll guide you.</p>
+    </details>
+    <details>
+      <summary>Collaboration / influencer requests?</summary>
+      <p>Send details in the form (links + audience + concept). We review weekly.</p>
+    </details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-left">
+      <a class="brand small" href="index.html">STYLE<span>&</span>TREND</a>
+      <p>© 2026 Style & Trend</p>
+    </div>
+    <div class="foot-right">
+      <a href="products.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
 </body>
