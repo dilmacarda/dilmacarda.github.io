@@ -158,7 +158,7 @@ body{
 }
 
 /* =========================
-   HERO (NO CROP – FIXED CORNERS)
+   HERO (NO CROP – NO GREY SIDES)
 ========================= */
 .hero{
   background: var(--white);
@@ -192,12 +192,13 @@ body{
   flex-wrap:wrap;
 }
 
+/* ✅ Gri alanı kaldırdık: arkaplan siyah + padding 0 */
 .hero-media{
-  background:#f0f0f0;
+  background:#000;              /* gri yerine siyah */
   border-radius: var(--radius);
   border:1px solid var(--line);
   box-shadow: var(--shadow);
-  padding: 12px;
+  padding: 0;                   /* gri boşluk hissini azaltır */
   overflow: hidden;
 
   display:flex;
@@ -216,9 +217,11 @@ body{
 
   object-fit: contain !important;
 
-  border-radius: calc(var(--radius) - 6px);
+  /* Köşeler düzgün */
+  border-radius: calc(var(--radius) - 2px);
+
+  /* ✅ artık gri/siyah boşluklar daha bütün durur */
   background:#000;
-  box-shadow: 0 10px 25px rgba(0,0,0,.10);
 }
 
 /* =========================
@@ -274,6 +277,7 @@ body{
   width:100%;
   height:100%;
   object-fit: cover;
+  display:block;
 }
 
 /* =========================
@@ -294,6 +298,7 @@ body{
   width:100%;
   height:100%;
   object-fit: cover;
+  display:block;
 }
 
 .price{
@@ -321,6 +326,17 @@ body{
   width:100%;
   height:100%;
   object-fit: cover;
+  display:block;
+}
+
+/* =========================
+   ABOUT IMAGE (optional helper)
+========================= */
+.about-img{
+  width:100%;
+  height: 260px;
+  object-fit: cover;
+  display:block;
 }
 
 /* =========================
