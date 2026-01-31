@@ -19,6 +19,10 @@
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+
+      <a href="cart.html">
+        Cart <span id="cartCount" class="cart-badge">0</span>
+      </a>
     </nav>
   </div>
 </header>
@@ -113,6 +117,52 @@
     </div>
   </div>
 </footer>
+
+<!-- Toast -->
+<div id="toast" class="toast">
+  <div class="dot"></div>
+  <div>
+    <strong id="toastTitle">Added to cart</strong>
+    <small id="toastText">Item added successfully.</small>
+  </div>
+</div>
+
+<script>
+  function getCart() {
+    return JSON.parse(localStorage.getItem("cart") || "[]");
+  }
+
+  function setCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function updateCartCount() {
+    const el = document.getElementById("cartCount");
+    if (!el) return;
+    el.textContent = getCart().length;
+  }
+
+  function showToast(title, text) {
+    const toast = document.getElementById("toast");
+    if (!toast) return;
+    document.getElementById("toastTitle").textContent = title;
+    document.getElementById("toastText").textContent = text;
+    toast.classList.add("show");
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+  }
+
+  // Global addToCart (other pages can use too)
+  function addToCart(name, price) {
+    const cart = getCart();
+    cart.push({ name, price });
+    setCart(cart);
+    updateCartCount();
+    showToast("Added to cart", name + " has been added.");
+  }
+
+  window.addEventListener("load", updateCartCount);
+</script>
 
 </body>
 </html>
