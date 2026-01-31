@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cart | Style & Trend</title>
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css"/>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -30,12 +31,39 @@
   <div class="container">
     <h2 class="section-title">Your Cart</h2>
     <p class="section-sub">Items you added to your bag.</p>
+
+    <div class="card">
+      <div class="card-body">
+        <div id="emptyState" class="section-sub" style="display:none; margin:0;">
+          Your cart is empty. <a href="products.html">Go to products</a>.
+        </div>
+
+        <div id="cartWrap" style="display:none;">
+          <div id="cartItems" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; border-top:1px solid var(--line); padding-top:14px;">
+            <div style="font-weight:800;">Total: <span id="totalPrice">$0.00</span></div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-light" onclick="clearCart()">Clear cart</button>
+              <a class="btn btn-primary" href="products.html">Continue shopping</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div>© 2026 Style & Trend</div>
+    <div>
+      <a href="products.html">Shop</a> ·
+      <a href="about.html">About</a> ·
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 </footer>
 
@@ -43,11 +71,74 @@
   function getCart(){
     return JSON.parse(localStorage.getItem("cart") || "[]");
   }
+
+  function setCart(cart){
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   function updateCartCount(){
     const el = document.getElementById("cartCount");
     if(el) el.textContent = getCart().length;
   }
-  window.addEventListener("load", updateCartCount);
+
+  function formatMoney(n){
+    return "$" + Number(n).toFixed(2);
+  }
+
+  function removeItem(index){
+    const cart = getCart();
+    cart.splice(index, 1);
+    setCart(cart);
+    renderCart();
+  }
+
+  function clearCart(){
+    localStorage.removeItem("cart");
+    renderCart();
+  }
+
+  function renderCart(){
+    const cart = getCart();
+    updateCartCount();
+
+    const emptyState = document.getElementById("emptyState");
+    const cartWrap = document.getElementById("cartWrap");
+    const cartItems = document.getElementById("cartItems");
+    const totalPrice = document.getElementById("totalPrice");
+
+    if(cart.length === 0){
+      emptyState.style.display = "block";
+      cartWrap.style.display = "none";
+      return;
+    }
+
+    emptyState.style.display = "none";
+    cartWrap.style.display = "block";
+
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, i) => {
+      total += Number(item.price || 0);
+
+      const row = document.createElement("div");
+      row.className = "card";
+      row.innerHTML = `
+        <div class="card-body" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+          <div>
+            <div style="font-weight:800;">${item.name || "Item"}</div>
+            <div class="section-sub" style="margin:4px 0 0;">${formatMoney(item.price || 0)}</div>
+          </div>
+          <button class="btn btn-light" onclick="removeItem(${i})">Remove</button>
+        </div>
+      `;
+      cartItems.appendChild(row);
+    });
+
+    totalPrice.textContent = formatMoney(total);
+  }
+
+  window.addEventListener("load", renderCart);
 </script>
 
 </body>
