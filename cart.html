@@ -68,25 +68,42 @@
 </footer>
 
 <script>
-  function getCart(){
-    return JSON.parse(localStorage.getItem("cart") || "[]");
+  function getCartAnyKey(){
+    const keys = ["cart", "cartItems", "basket", "sepet"];
+    for(const k of keys){
+      const raw = localStorage.getItem(k);
+      if(raw){
+        try {
+          const parsed = JSON.parse(raw);
+          if(Array.isArray(parsed)) return { key: k, cart: parsed };
+        } catch(e){}
+      }
+    }
+    return { key: "cart", cart: [] };
   }
 
-  function setCart(cart){
-    localStorage.setItem("cart", JSON.stringify(cart));
+  function normalizeCart(){
+    const found = getCartAnyKey();
+    localStorage.setItem("cart", JSON.stringify(found.cart));
+    if(found.key !== "cart") localStorage.removeItem(found.key);
+    return found.cart;
   }
 
   function updateCartCount(){
     const el = document.getElementById("cartCount");
-    if(el) el.textContent = getCart().length;
+    if(el) el.textContent = normalizeCart().length;
   }
 
   function formatMoney(n){
     return "$" + Number(n).toFixed(2);
   }
 
+  function setCart(cart){
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   function removeItem(index){
-    const cart = getCart();
+    const cart = normalizeCart();
     cart.splice(index, 1);
     setCart(cart);
     renderCart();
@@ -98,7 +115,7 @@
   }
 
   function renderCart(){
-    const cart = getCart();
+    const cart = normalizeCart();
     updateCartCount();
 
     const emptyState = document.getElementById("emptyState");
