@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products | Style & Trend</title>
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css"/>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -31,8 +32,45 @@
     <h2 class="section-title">Our Collection</h2>
     <p class="section-sub">Modern, stylish and affordable fashion pieces.</p>
 
+    <!-- ✅ ÜRÜNLER BURADA -->
     <div class="products-grid">
-      <!-- ürün kartların burada -->
+
+      <div class="card">
+        <div class="product-img">
+          <img src="images/urun1.jpg" alt="Oversized T-Shirt">
+        </div>
+        <div class="card-body">
+          <h3>Oversized T-Shirt</h3>
+          <div class="price">$29.99</div>
+          <p class="section-sub" style="margin:8px 0 12px;">Heavyweight cotton, relaxed fit, everyday essential.</p>
+          <button class="btn btn-primary" onclick="addToCart('Oversized T-Shirt', 29.99)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-img">
+          <img src="images/urun2.jpg" alt="Luxury Jacket">
+        </div>
+        <div class="card-body">
+          <h3>Luxury Jacket</h3>
+          <div class="price">$99.99</div>
+          <p class="section-sub" style="margin:8px 0 12px;">Structured layering piece with premium finishing.</p>
+          <button class="btn btn-primary" onclick="addToCart('Luxury Jacket', 99.99)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-img">
+          <img src="images/urun3.jpg" alt="Premium Sneakers">
+        </div>
+        <div class="card-body">
+          <h3>Premium Sneakers</h3>
+          <div class="price">$79.99</div>
+          <p class="section-sub" style="margin:8px 0 12px;">Minimal design, comfortable sole, clean street look.</p>
+          <button class="btn btn-primary" onclick="addToCart('Premium Sneakers', 79.99)">Add to Cart</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -51,10 +89,20 @@
   function getCart(){
     return JSON.parse(localStorage.getItem("cart") || "[]");
   }
+
   function updateCartCount(){
     const el = document.getElementById("cartCount");
     if(el) el.textContent = getCart().length;
   }
+
+  function addToCart(name, price){
+    const cart = getCart();
+    cart.push({name, price});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(name + " added to cart!");
+  }
+
   window.addEventListener("load", updateCartCount);
 </script>
 
