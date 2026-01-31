@@ -1,117 +1,107 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f6f6f6;color:#222}
+
+.navbar{
+  background:#fff;
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-body {
-  background: #f6f6f6;
-  color: #222;
+.logo{
+  font-size:1.7rem;
+  font-weight:bold;
+  text-decoration:none;
+  color:#000;
+}
+.logo span{color:#ff5fa2}
+
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
 }
 
-/* NAVBAR */
-.navbar {
-  background: #fff;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.hero{
+  height:420px;
+  background:#ccc url("images/hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.logo {
-  font-size: 1.6rem;
-  font-weight: bold;
+.hero-content{
+  background:rgba(0,0,0,.5);
+  padding:30px 50px;
+  color:#fff;
+  border-radius:20px;
 }
 
-.logo span {
-  color: #ff5fa2;
+.categories,.products-page,.about,.contact{
+  padding:80px 40px;
+  text-align:center;
 }
 
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
+.about p{
+  font-size:1.15rem;
+  max-width:800px;
+  margin:20px auto;
+  line-height:1.7;
 }
 
-/* PRODUCTS PAGE */
-.products-page {
-  padding: 80px 40px;
-  text-align: center;
+.category-grid,.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
 }
 
-.products-page h1 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
+.category-card{
+  height:300px;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+}
+.category-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.category-card span{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  color:#fff;
+  font-size:1.4rem;
 }
 
-.subtitle {
-  color: #666;
-  margin-bottom: 50px;
+.product-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+}
+.product-image{height:260px}
+.product-image img{width:100%;height:100%;object-fit:cover}
+
+.contact form{
+  max-width:500px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+input,textarea,button{
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
 }
 
-/* GRID */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 35px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* CARD */
-.product-card {
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-/* IMAGE WRAPPER — KRİTİK */
-.product-image {
-  height: 260px;              /* ❗️SABİT YÜKSEKLİK */
-  overflow: hidden;
-}
-
-/* IMAGE — GLOBAL KURALLARI EZİYOR */
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* ❗️ORAN BOZULMAZ */
-  display: block;
-}
-
-/* INFO */
-.product-info {
-  padding: 20px;
-}
-
-.product-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-.price {
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.product-info button {
-  padding: 10px 22px;
-  border-radius: 25px;
-  border: none;
-  background: #ff5fa2;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* FOOTER */
-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 25px;
-  margin-top: 60px;
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:25px;
 }
