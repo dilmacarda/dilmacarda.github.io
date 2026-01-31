@@ -2,89 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Style & Trend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Style & Trend</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="blog.html">Blog</a>
-      <span id="cart-count" class="cart-count">0</span>
-    </nav>
-  </header>
+<!-- HEADER -->
+<header class="navbar">
+  <div class="logo">Style<span>&</span>Trend</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Discover Luxury Fashion</h1>
-      <p>Premium clothing collections for modern style.</p>
-      <a href="products.html"><button>Shop Now</button></a>
+<!-- HERO -->
+<section class="hero-modern">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <h1>Discover Your Style</h1>
+    <p>
+      Premium fashion pieces, trend insights and modern looks  
+      designed to elevate your everyday style.
+    </p>
+    <a href="products.html" class="hero-btn">Explore Collection</a>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <h2>Fashion Categories</h2>
+
+  <div class="category-grid">
+    <div class="category-card">
+      <img src="images/collection1.jpg" alt="">
+      <span>Streetwear</span>
     </div>
-  </section>
 
-  <!-- ABOUT / OUR STORY -->
-  <section id="about" class="about-section">
-    <h2>Our Story</h2>
-    <p>Founded in 2026, Style & Trend is dedicated to redefining modern luxury fashion. Our mission is to create timeless pieces that empower and inspire.</p>
-    <p>Every collection is designed with sustainability, elegance, and premium quality in mind.</p>
-  </section>
-
-  <!-- FEATURED COLLECTIONS -->
-  <section class="collections-section">
-    <h2>Featured Collections</h2>
-    <div class="collections-container">
-      <div class="collection-card">
-        <img src="images/collection1.jpg" alt="Spring Collection">
-        <h3>Spring Elegance</h3>
-        <p>Fresh styles and vibrant designs for the season.</p>
-      </div>
-      <div class="collection-card">
-        <img src="images/collection2.jpg" alt="Winter Collection">
-        <h3>Winter Luxe</h3>
-        <p>Cozy yet stylish pieces perfect for winter.</p>
-      </div>
-      <div class="collection-card">
-        <img src="images/collection3.jpg" alt="Evening Collection">
-        <h3>Evening Glam</h3>
-        <p>Exquisite outfits for special nights and events.</p>
-      </div>
+    <div class="category-card">
+      <img src="images/collection2.jpg" alt="">
+      <span>Luxury</span>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Style & Trend | Follow us on social media</p>
-  </footer>
+    <div class="category-card">
+      <img src="images/collection3.jpg" alt="">
+      <span>Casual</span>
+    </div>
 
-  <!-- CART SCRIPT -->
-  <script>
-    let cart = [];
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      localStorage.setItem("cart", JSON.stringify(cart));
-      updateCartCount();
-    }
+    <div class="category-card">
+      <img src="images/urun3.jpg" alt="">
+      <span>Trends 2026</span>
+    </div>
+  </div>
+</section>
 
-    function updateCartCount() {
-      const count = cart.length;
-      const cartCount = document.getElementById("cart-count");
-      if(cartCount) cartCount.textContent = count;
-    }
+<!-- FEATURED -->
+<section class="featured">
+  <h2>Editor's Picks</h2>
 
-    window.onload = () => {
-      if(localStorage.getItem("cart")) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        updateCartCount();
-      }
-    };
-  </script>
+  <div class="featured-grid">
+    <div class="featured-card">
+      <img src="images/urun1.jpg">
+      <h3>Oversized T-Shirt</h3>
+      <p>Minimal, modern and timeless fit.</p>
+    </div>
+
+    <div class="featured-card">
+      <img src="images/urun2.jpg">
+      <h3>Luxury Jacket</h3>
+      <p>High-end craftsmanship for bold looks.</p>
+    </div>
+
+    <div class="featured-card">
+      <img src="images/urun3.jpg">
+      <h3>Premium Sneakers</h3>
+      <p>Comfort meets modern design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>Join Our Community</h2>
+  <p>Get style tips, trends and exclusive offers</p>
+
+  <form>
+    <input type="email" placeholder="Your email address">
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Style & Trend · All Rights Reserved
+</footer>
 
 </body>
 </html>
