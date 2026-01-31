@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products | Style & Trend</title>
-  <link rel="stylesheet" href="style.css"/>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,9 +21,7 @@
       <a href="products.html" class="active">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="cart.html">
-        Cart <span id="cartCount" class="cart-badge">0</span>
-      </a>
+      <a href="cart.html">Cart <span id="cartCount" class="cart-badge">0</span></a>
     </nav>
   </div>
 </header>
@@ -29,35 +32,7 @@
     <p class="section-sub">Modern, stylish and affordable fashion pieces.</p>
 
     <div class="products-grid">
-      <div class="card">
-        <div class="product-img"><img src="images/urun1.jpg" alt="Oversized T-Shirt"></div>
-        <div class="card-body">
-          <h3>Oversized T-Shirt</h3>
-          <div class="price">$29.99</div>
-          <p class="product-desc">Heavyweight cotton, relaxed fit, everyday essential.</p>
-          <button class="btn btn-primary" onclick="addToCart('Oversized T-Shirt', 29.99)">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-img"><img src="images/urun2.jpg" alt="Luxury Jacket"></div>
-        <div class="card-body">
-          <h3>Luxury Jacket</h3>
-          <div class="price">$99.99</div>
-          <p class="product-desc">Structured layering piece with premium finishing.</p>
-          <button class="btn btn-primary" onclick="addToCart('Luxury Jacket', 99.99)">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-img"><img src="images/urun3.jpg" alt="Premium Sneakers"></div>
-        <div class="card-body">
-          <h3>Premium Sneakers</h3>
-          <div class="price">$79.99</div>
-          <p class="product-desc">Minimal design, comfortable sole, clean street look.</p>
-          <button class="btn btn-primary" onclick="addToCart('Premium Sneakers', 79.99)">Add to Cart</button>
-        </div>
-      </div>
+      <!-- ürün kartların burada -->
     </div>
   </div>
 </section>
@@ -66,53 +41,20 @@
   <div class="footer-inner">
     <div>© 2026 Style & Trend</div>
     <div>
-      <a href="index.html">Home</a> ·
       <a href="about.html">About</a> ·
       <a href="contact.html">Contact</a>
     </div>
   </div>
 </footer>
 
-<!-- Toast -->
-<div id="toast" class="toast">
-  <div class="dot"></div>
-  <div>
-    <strong id="toastTitle">Added to cart</strong>
-    <small id="toastText">Item added successfully.</small>
-  </div>
-</div>
-
 <script>
-  function getCart() {
+  function getCart(){
     return JSON.parse(localStorage.getItem("cart") || "[]");
   }
-  function setCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-  function updateCartCount() {
+  function updateCartCount(){
     const el = document.getElementById("cartCount");
-    if (!el) return;
-    el.textContent = getCart().length;
+    if(el) el.textContent = getCart().length;
   }
-
-  function showToast(title, text) {
-    const toast = document.getElementById("toast");
-    if (!toast) return;
-    document.getElementById("toastTitle").textContent = title;
-    document.getElementById("toastText").textContent = text;
-    toast.classList.add("show");
-    clearTimeout(window.__toastTimer);
-    window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
-  }
-
-  function addToCart(name, price) {
-    const cart = getCart();
-    cart.push({ name, price });
-    setCart(cart);
-    updateCartCount();
-    showToast("Added to cart", name + " has been added.");
-  }
-
   window.addEventListener("load", updateCartCount);
 </script>
 
