@@ -5,107 +5,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Style & Trend</title>
 
-  <!-- FAVICON (ST LOGO) -->
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="favicon.png">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="brand">Style<span>&</span>Trend</a>
+<!-- NAVBAR -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Style<span>&</span>Trend</a>
+    <nav class="menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart <span class="cart-badge" id="cart-count">0</span></a>
+    </nav>
+  </div>
+</header>
 
-      <nav class="menu">
-        <a href="index.html" class="active">Home</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">
-          Cart <span class="cart-badge" id="cart-count">0</span>
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <h1>Modern Fashion</h1>
-        <p>Clean, wearable and premium-feel pieces.</p>
-
-        <div class="hero-actions">
-          <a href="products.html" class="btn btn-primary">Shop Now</a>
-          <a href="#editorial" class="btn btn-light">Explore</a>
-        </div>
-      </div>
-
-      <div class="hero-media">
-        <img src="images/hero.jpg" alt="Style & Trend Hero">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Modern Fashion for Everyday Life</h1>
+      <p>
+        Style & Trend offers clean silhouettes, premium fabrics and timeless
+        designs inspired by modern street culture.
+      </p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn btn-primary">Shop Collection</a>
+        <a href="#editorial" class="btn btn-light">Explore Styles</a>
       </div>
     </div>
-  </section>
 
-  <!-- EDITORIAL -->
-  <section class="section" id="editorial">
-    <div class="container">
-      <h2 class="section-title">Editorial Picks</h2>
-      <p class="section-sub">Curated looks from our latest drops</p>
-
-      <div class="grid-3">
-        <div class="media">
-          <img src="images/edit1.jpg" alt="Editorial 1">
-        </div>
-        <div class="media">
-          <img src="images/edit2.jpg" alt="Editorial 2">
-        </div>
-        <div class="media">
-          <img src="images/edit3.jpg" alt="Editorial 3">
-        </div>
-      </div>
+    <div class="hero-media">
+      <img src="images/hero.jpg" alt="Style & Trend Hero">
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FEATURE -->
-  <section class="section">
-    <div class="container grid-2">
+<!-- EDITORIAL -->
+<section class="section" id="editorial">
+  <div class="container">
+    <h2 class="section-title">Editorial Picks</h2>
+    <p class="section-sub">
+      Carefully curated looks that define our seasonal vision.
+    </p>
+
+    <div class="grid-3">
+      <div class="media"><img src="images/edit1.jpg" alt="Edit 1"></div>
+      <div class="media"><img src="images/edit2.jpg" alt="Edit 2"></div>
+      <div class="media"><img src="images/edit3.jpg" alt="Edit 3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STORY -->
+<section class="section">
+  <div class="container grid-2">
+    <div class="media">
+      <img src="images/edit4.jpg" alt="Edit 4">
+    </div>
+    <div class="card-body">
+      <h3>Designed with Purpose</h3>
+      <p>
+        Every piece is created to balance comfort and style.
+        From everyday basics to statement pieces, our collections
+        are built to last beyond trends.
+      </p>
+      <p>
+        We focus on neutral tones, strong materials and versatile cuts
+        that fit naturally into your wardrobe.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Shop by Style</h2>
+    <p class="section-sub">Find the look that defines you</p>
+
+    <div class="grid-3">
       <div class="card">
-        <div class="media">
-          <img src="images/edit4.jpg" alt="Editorial 4">
+        <div class="media"><img src="images/edit1.jpg"></div>
+        <div class="card-body">
+          <h3>Streetwear</h3>
+          <p>Urban inspired silhouettes with bold details.</p>
         </div>
       </div>
 
-      <div class="card card-body">
-        <h3>Designed for everyday wear</h3>
-        <p>
-          Style & Trend blends modern silhouettes with premium fabrics,
-          offering effortless outfits that transition from street to evening.
-        </p>
+      <div class="card">
+        <div class="media"><img src="images/edit2.jpg"></div>
+        <div class="card-body">
+          <h3>Luxury</h3>
+          <p>Minimal elegance with premium finishes.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="media"><img src="images/edit3.jpg"></div>
+        <div class="card-body">
+          <h3>Casual</h3>
+          <p>Clean everyday essentials designed for comfort.</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <p>© 2026 Style & Trend</p>
-      <p>Modern • Clean • Wearable</p>
-    </div>
-  </footer>
+<!-- ABOUT PREVIEW -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">About Style & Trend</h2>
+    <p class="section-sub">
+      A modern fashion brand built around simplicity and quality.
+    </p>
+    <p>
+      Founded with the idea of creating wearable fashion that feels premium
+      without being excessive, Style & Trend focuses on timeless design
+      principles and modern culture.
+    </p>
+    <a href="about.html" class="btn btn-light">Read More</a>
+  </div>
+</section>
 
-  <!-- CART SCRIPT -->
-  <script>
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+<!-- NEWSLETTER -->
+<section class="section">
+  <div class="container card card-body">
+    <h3>Join Our Newsletter</h3>
+    <p>
+      Get updates on new collections, limited drops and exclusive offers.
+    </p>
+    <form>
+      <input type="email" placeholder="Your email" required>
+      <button class="btn btn-primary" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
 
-    function updateCartCount(){
-      const el = document.getElementById("cart-count");
-      if(el) el.textContent = cart.length;
-    }
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p>© 2026 Style & Trend</p>
+    <p>Modern • Clean • Wearable</p>
+  </div>
+</footer>
 
-    updateCartCount();
-  </script>
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cart-count").textContent = cart.length;
+</script>
 
 </body>
 </html>
