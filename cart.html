@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cart | Style & Trend</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Style<span>&</span>Trend</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+</header>
+
+<section class="cart">
+    <h1>Your Cart</h1>
+    <ul id="cartItems"></ul>
+    <h2 id="total"></h2>
+    <a class="pay-btn" href="checkout.html">Proceed to Checkout</a>
+</section>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let list = document.getElementById("cartItems");
+let total = 0;
+
+cart.forEach((item, index) => {
+    total += item.price;
+    let li = document.createElement("li");
+    li.innerHTML = `
+        ${item.name} - $${item.price.toFixed(2)}
+        <button onclick="removeItem(${index})">Remove</button>
+    `;
+    list.appendChild(li);
+});
+
+document.getElementById("total").innerText =
+    "Total: $" + total.toFixed(2);
+
+function removeItem(i) {
+    cart.splice(i, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+}
+</script>
+
+</body>
+</html>
