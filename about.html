@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Style & Trend</title>
-  <link rel="stylesheet" href="style.css"/>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -22,46 +27,12 @@
 </header>
 
 <section class="section">
-  <div class="container" style="display:grid; grid-template-columns: 1.1fr .9fr; gap:14px;">
-    <div>
-      <h2 class="section-title">About Us</h2>
-      <p class="section-sub">
-        Style & Trend is a contemporary fashion label based in Istanbul. We blend clean silhouettes
-        with street energy—designed for daily wear, elevated with premium feel, finished with precise details.
-      </p>
-
-      <h3 style="font-size:18px; margin-top:10px;">Our Story</h3>
-      <p>
-        Founded in 2026, Style & Trend started with a simple goal: create wardrobe pieces that feel premium,
-        look effortless, and stay relevant across seasons.
-      </p>
-      <p>
-        We design essentials that work every day, outerwear that defines the silhouette, and sneakers that finish the look.
-        Our collections are intentionally focused: fewer pieces, stronger design decisions, better fit.
-      </p>
-
-      <h3 style="font-size:18px; margin-top:14px;">What we focus on</h3>
-      <ul style="margin-left:18px; color:var(--muted);">
-        <li>Clean design and easy-to-style silhouettes</li>
-        <li>Comfort and fit testing</li>
-        <li>Consistent finishing details</li>
-        <li>Focused drops instead of huge collections</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img class="about-img" src="images/about-hero.jpg" alt="Studio" onerror="this.style.display='none'">
-      <div class="card-body">
-        <h3>Studio Mood</h3>
-        <p>Minimal workspace, clean direction, and detail-focused design choices.</p>
-      </div>
-
-      <img class="about-img" src="images/about-atelier.jpg" alt="Atelier" onerror="this.style.display='none'">
-      <div class="card-body">
-        <h3>Atelier</h3>
-        <p>Hands-on refinement and finishing touches for quality consistency.</p>
-      </div>
-    </div>
+  <div class="container">
+    <h2 class="section-title">About Style & Trend</h2>
+    <p class="section-sub">
+      Style & Trend is a modern fashion brand focused on clean design,
+      everyday wearability and premium-feel essentials.
+    </p>
   </div>
 </section>
 
@@ -76,7 +47,9 @@
 </footer>
 
 <script>
-  function getCart(){ return JSON.parse(localStorage.getItem("cart") || "[]"); }
+  function getCart(){
+    return JSON.parse(localStorage.getItem("cart") || "[]");
+  }
   function updateCartCount(){
     const el = document.getElementById("cartCount");
     if(el) el.textContent = getCart().length;
