@@ -16,15 +16,13 @@
       <a href="products.html">Products</a>
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
-      <a href="cart.html">
-        Cart <span id="cartCount" class="cart-badge">0</span>
-      </a>
+      <a href="cart.html">Cart <span id="cartCount" class="cart-badge">0</span></a>
     </nav>
   </div>
 </header>
 
 <section class="section">
-  <div class="container split">
+  <div class="container" style="display:grid; grid-template-columns: 1.1fr .9fr; gap:14px;">
     <div>
       <h2 class="section-title">About Us</h2>
       <p class="section-sub">
@@ -32,52 +30,33 @@
         with street energy—designed for daily wear, elevated with premium feel, finished with precise details.
       </p>
 
-      <h3 class="section-title" style="font-size:18px;">Our Story</h3>
+      <h3 style="font-size:18px; margin-top:10px;">Our Story</h3>
       <p>
         Founded in 2026, Style & Trend started with a simple goal: create wardrobe pieces that feel premium,
-        look effortless, and stay relevant across seasons. We believe great style is not loud — it’s clean,
-        confident, and consistent.
+        look effortless, and stay relevant across seasons.
       </p>
       <p>
         We design essentials that work every day, outerwear that defines the silhouette, and sneakers that finish the look.
         Our collections are intentionally focused: fewer pieces, stronger design decisions, better fit.
       </p>
-      <p>
-        We build every drop with a clear direction — fabrics, textures, and shapes that match the brand identity.
-        This keeps everything cohesive: you can mix pieces easily and always look “put together”.
-      </p>
 
-      <div class="stats">
-        <div class="stat"><strong>2026</strong><span>Founded</span></div>
-        <div class="stat"><strong>3</strong><span>Core Lines</span></div>
-        <div class="stat"><strong>Istanbul</strong><span>Design Base</span></div>
-      </div>
-
-      <div class="section" style="padding:18px 0;">
-        <h3 class="section-title" style="font-size:18px;">How We Build a Collection</h3>
-        <div class="steps">
-          <div class="step"><strong>01 Direction</strong><span style="color:var(--muted);">We set mood, color, fabric and silhouette guidelines.</span></div>
-          <div class="step"><strong>02 Sampling</strong><span style="color:var(--muted);">Prototypes, fit tests, seam refinement and detail tuning.</span></div>
-          <div class="step"><strong>03 Production</strong><span style="color:var(--muted);">Controlled runs with quality checks and consistent finishing.</span></div>
-          <div class="step"><strong>04 Drop</strong><span style="color:var(--muted);">Focused releases — fewer pieces, stronger wardrobe building.</span></div>
-        </div>
-      </div>
-
-      <h3 class="section-title" style="font-size:18px;">FAQ</h3>
-      <div class="faq">
-        <details><summary>Where are you based?</summary><p>We’re based in Istanbul, Turkey.</p></details>
-        <details><summary>What style is Style & Trend?</summary><p>Modern minimalism with street influence.</p></details>
-        <details><summary>Do you do limited drops?</summary><p>Yes. Focused releases.</p></details>
-      </div>
+      <h3 style="font-size:18px; margin-top:14px;">What we focus on</h3>
+      <ul style="margin-left:18px; color:var(--muted);">
+        <li>Clean design and easy-to-style silhouettes</li>
+        <li>Comfort and fit testing</li>
+        <li>Consistent finishing details</li>
+        <li>Focused drops instead of huge collections</li>
+      </ul>
     </div>
 
     <div class="card">
-      <div class="cat-img" style="height:260px;"><img src="images/about-hero.png" alt="About image"></div>
+      <img class="about-img" src="images/about-hero.jpg" alt="Studio" onerror="this.style.display='none'">
       <div class="card-body">
         <h3>Studio Mood</h3>
         <p>Minimal workspace, clean direction, and detail-focused design choices.</p>
       </div>
-      <div class="cat-img" style="height:260px;"><img src="images/about-atelier.png" alt="Atelier image"></div>
+
+      <img class="about-img" src="images/about-atelier.jpg" alt="Atelier" onerror="this.style.display='none'">
       <div class="card-body">
         <h3>Atelier</h3>
         <p>Hands-on refinement and finishing touches for quality consistency.</p>
@@ -97,13 +76,10 @@
 </footer>
 
 <script>
-  function getCart() {
-    return JSON.parse(localStorage.getItem("cart") || "[]");
-  }
-  function updateCartCount() {
+  function getCart(){ return JSON.parse(localStorage.getItem("cart") || "[]"); }
+  function updateCartCount(){
     const el = document.getElementById("cartCount");
-    if (!el) return;
-    el.textContent = getCart().length;
+    if(el) el.textContent = getCart().length;
   }
   window.addEventListener("load", updateCartCount);
 </script>
