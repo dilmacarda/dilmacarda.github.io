@@ -15,7 +15,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
-      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
       <span id="cart-count" class="cart-count">0</span>
     </nav>
   </header>
@@ -29,17 +29,33 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT / OUR STORY -->
   <section id="about" class="about-section">
-    <h2>About Us</h2>
-    <p>Founded in 2026, Style & Trend brings you the finest in fashion and lifestyle. Our collections focus on elegance, quality, and timeless style.</p>
-    <p>We believe in sustainable fashion and creating pieces that make you feel confident and stylish every day.</p>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.756228188343!2d29.35694531534833!3d40.85042337931471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac11b3d1779e5%3A0x4f1b5b9e53e21f69!2sTuzla%2C%20Istanbul!5e0!3m2!1sen!2str!4v1617683085274!5m2!1sen!2str" 
-      allowfullscreen="" 
-      loading="lazy">
-    </iframe>
-    <p>Phone: +90 5XX XXX XX XX</p>
+    <h2>Our Story</h2>
+    <p>Founded in 2026, Style & Trend is dedicated to redefining modern luxury fashion. Our mission is to create timeless pieces that empower and inspire.</p>
+    <p>Every collection is designed with sustainability, elegance, and premium quality in mind.</p>
+  </section>
+
+  <!-- FEATURED COLLECTIONS -->
+  <section class="collections-section">
+    <h2>Featured Collections</h2>
+    <div class="collections-container">
+      <div class="collection-card">
+        <img src="images/collection1.jpg" alt="Spring Collection">
+        <h3>Spring Elegance</h3>
+        <p>Fresh styles and vibrant designs for the season.</p>
+      </div>
+      <div class="collection-card">
+        <img src="images/collection2.jpg" alt="Winter Collection">
+        <h3>Winter Luxe</h3>
+        <p>Cozy yet stylish pieces perfect for winter.</p>
+      </div>
+      <div class="collection-card">
+        <img src="images/collection3.jpg" alt="Evening Collection">
+        <h3>Evening Glam</h3>
+        <p>Exquisite outfits for special nights and events.</p>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -53,7 +69,6 @@
     function addToCart(name, price) {
       cart.push({ name, price });
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${name} has been added to your cart!`);
       updateCartCount();
     }
 
