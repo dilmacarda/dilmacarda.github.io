@@ -70,12 +70,6 @@ body{
 }
 .btn-primary{ background:#111; color:#fff; }
 .btn-primary:hover{ filter: brightness(1.08); }
-.btn-ghost{
-  background: rgba(255,255,255,.12);
-  color:#fff;
-  border-color: rgba(255,255,255,.35);
-}
-.btn-ghost:hover{ background: rgba(255,255,255,.18); }
 
 /* SECTIONS */
 .section{ padding: 84px 64px; }
