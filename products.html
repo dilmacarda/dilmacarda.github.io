@@ -16,7 +16,6 @@
       <a href="products.html" class="active">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-
       <a href="cart.html">
         Cart <span id="cartCount" class="cart-badge">0</span>
       </a>
@@ -87,11 +86,9 @@
   function getCart() {
     return JSON.parse(localStorage.getItem("cart") || "[]");
   }
-
   function setCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
-
   function updateCartCount() {
     const el = document.getElementById("cartCount");
     if (!el) return;
