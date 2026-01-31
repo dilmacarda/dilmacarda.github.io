@@ -1,53 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Products</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products | Style & Trend</title>
+
+  <!-- CSS yolu doğru mu? style.css products.html ile aynı klasörde olmalı -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Fontlar (opsiyonel ama şık) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="navbar">
-  <h1 class="logo"><a href="index.html">Style<span>&</span>Trend</a></h1>
-  <nav>
+<header class="nav">
+  <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
+  <nav class="menu">
     <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
+    <a href="products.html" class="active">Products</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<section class="products-intro">
-  <h1>Our Collection</h1>
-  <p>Modern, stylish and affordable fashion pieces.</p>
-</section>
-
-<section class="products-grid">
-  <div class="product-card">
-    <img src="images/product1.jpg">
-    <h3>Street Jacket</h3>
-    <p>$89</p>
-    <button>Add to Cart</button>
-  </div>
-
-  <div class="product-card">
-    <img src="images/product2.jpg">
-    <h3>Luxury Hoodie</h3>
-    <p>$120</p>
-    <button>Add to Cart</button>
-  </div>
-
-  <div class="product-card">
-    <img src="images/product3.jpg">
-    <h3>Casual Shirt</h3>
-    <p>$65</p>
-    <button>Add to Cart</button>
+<!-- PAGE HERO (küçük) -->
+<section class="page-hero compact">
+  <img class="page-hero-img" src="images/campaign.jpg" alt="Products hero">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-copy">
+    <p class="kicker">SHOP</p>
+    <h1 class="page-title">Our Collection</h1>
+    <p class="page-sub">
+      Clean silhouettes, premium feel, and focused drops.
+    </p>
   </div>
 </section>
 
-<footer>
-  © 2026 Style & Trend
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-title">New In</h2>
+    <span class="section-muted">Curated essentials & statement pieces.</span>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- ÜRÜN 1 -->
+    <div class="product-card">
+      <div class="product-image">
+        <!-- ÖNEMLİ: Senin eski görsellerin urun1.jpg / urun2.jpg / urun3.jpg idi -->
+        <img src="images/urun1.jpg" alt="Oversized T-Shirt">
+      </div>
+      <div class="product-info">
+        <div class="product-top">
+          <h3>Oversized T-Shirt</h3>
+          <p class="price">$29.99</p>
+        </div>
+        <p class="product-desc">Heavyweight cotton, relaxed fit, everyday essential.</p>
+        <button class="btn btn-primary" onclick="addToCart('Oversized T-Shirt', 29.99)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- ÜRÜN 2 -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="images/urun2.jpg" alt="Luxury Jacket">
+      </div>
+      <div class="product-info">
+        <div class="product-top">
+          <h3>Luxury Jacket</h3>
+          <p class="price">$99.99</p>
+        </div>
+        <p class="product-desc">Structured layering piece with premium finishing.</p>
+        <button class="btn btn-primary" onclick="addToCart('Luxury Jacket', 99.99)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- ÜRÜN 3 -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="images/urun3.jpg" alt="Premium Sneakers">
+      </div>
+      <div class="product-info">
+        <div class="product-top">
+          <h3>Premium Sneakers</h3>
+          <p class="price">$79.99</p>
+        </div>
+        <p class="product-desc">Minimal design, comfortable sole, clean street look.</p>
+        <button class="btn btn-primary" onclick="addToCart('Premium Sneakers', 79.99)">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-left">
+      <a class="brand small" href="index.html">STYLE<span>&</span>TREND</a>
+      <p>© 2026 Style & Trend</p>
+    </div>
+    <div class="foot-right">
+      <a href="products.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+  function addToCart(name, price) {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+  }
+</script>
 
 </body>
 </html>
