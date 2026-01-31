@@ -32,7 +32,6 @@
     <h2 class="section-title">Our Collection</h2>
     <p class="section-sub">Modern, stylish and affordable fashion pieces.</p>
 
-    <!-- ✅ ÜRÜNLER BURADA -->
     <div class="products-grid">
 
       <div class="card">
@@ -86,18 +85,39 @@
 </footer>
 
 <script>
-  function getCart(){
-    return JSON.parse(localStorage.getItem("cart") || "[]");
+  // ✅ Sepeti hangi isimle kaydettiysen bul, cart'a taşı (migrate)
+  function getCartAnyKey(){
+    const keys = ["cart", "cartItems", "basket", "sepet"];
+    for(const k of keys){
+      const raw = localStorage.getItem(k);
+      if(raw){
+        try {
+          const parsed = JSON.parse(raw);
+          if(Array.isArray(parsed)) return { key: k, cart: parsed };
+        } catch(e){}
+      }
+    }
+    return { key: "cart", cart: [] };
+  }
+
+  function normalizeCart(){
+    const found = getCartAnyKey();
+    // migrate to standard key "cart"
+    localStorage.setItem("cart", JSON.stringify(found.cart));
+    if(found.key !== "cart") localStorage.removeItem(found.key);
+    return found.cart;
   }
 
   function updateCartCount(){
+    const cart = normalizeCart();
     const el = document.getElementById("cartCount");
-    if(el) el.textContent = getCart().length;
+    if(el) el.textContent = cart.length;
   }
 
+  // ✅ GLOBAL addToCart (onclick bunu görmek zorunda)
   function addToCart(name, price){
-    const cart = getCart();
-    cart.push({name, price});
+    const cart = normalizeCart();
+    cart.push({ name, price });
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartCount();
     alert(name + " added to cart!");
