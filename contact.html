@@ -9,8 +9,6 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -23,48 +21,36 @@
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html" class="active">Contact</a>
-      <a href="cart.html">Cart <span class="cart-badge" id="cartCount">0</span></a>
+      <a href="cart.html">Cart <span id="cartCount" class="cart-badge">0</span></a>
     </nav>
   </div>
 </header>
 
 <section class="section">
   <div class="container">
-
     <h2 class="section-title">Send a Message</h2>
 
     <div class="contact-form">
       <form>
         <input type="text" placeholder="Your name">
         <input type="email" placeholder="you@email.com">
-
         <input class="full" type="text" placeholder="Shipping / sizing / collaboration">
         <textarea class="full" placeholder="Write your message..."></textarea>
-
-        <button class="btn btn-primary full" type="submit">Send</button>
+        <button class="btn btn-primary full">Send</button>
       </form>
     </div>
 
     <div class="contact-location">Tuzla · Istanbul</div>
 
     <div class="contact-map">
-      <iframe
-        src="https://www.google.com/maps?q=Tuzla%20Istanbul&output=embed"
-        loading="lazy">
-      </iframe>
+      <iframe src="https://www.google.com/maps?q=Tuzla%20Istanbul&output=embed"></iframe>
     </div>
-
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div>© 2026 Style & Trend</div>
-    <div>
-      <a href="products.html">Shop</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </div>
   </div>
 </footer>
 
