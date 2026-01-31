@@ -1,235 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Style & Trend</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- FAVICON (ST LOGO) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
-    <nav class="menu">
-      <a href="index.html" class="active">Home</a>
-      <a href="products.html">Products</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="cart.html">Cart <span id="cartCount" class="cart-badge">0</span></a>
-    </nav>
-  </div>
-</header>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Style<span>&</span>Trend</a>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-
-    <div>
-      <h1>Modern Fashion</h1>
-      <p>Streetwear • Luxury • Casual — clean, wearable and premium-feel pieces.</p>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="products.html">Shop Now</a>
-        <a class="btn btn-light" href="about.html">Our Story</a>
-      </div>
+      <nav class="menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">
+          Cart <span class="cart-badge" id="cart-count">0</span>
+        </a>
+      </nav>
     </div>
+  </header>
 
-    <!-- ✅ eski görünüm: resim cover ile dolacak -->
-    <div class="hero-media">
-      <img src="images/hero.jpg" alt="Style & Trend Hero">
-    </div>
-
-  </div>
-</section>
-
-<!-- SHOP BY STYLE -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Shop by Style</h2>
-    <p class="section-sub">Pick your vibe and discover matching pieces.</p>
-
-    <div class="grid-3">
-      <div class="card">
-        <div class="cat-img"><img src="images/streetwear.jpg" alt="Streetwear"></div>
-        <div class="card-body">
-          <h3>Streetwear</h3>
-          <p>Relaxed silhouettes and urban attitude.</p>
-          <a class="btn btn-primary" href="products.html">Explore</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="cat-img"><img src="images/luxury.jpg" alt="Luxury"></div>
-        <div class="card-body">
-          <h3>Luxury</h3>
-          <p>Premium-feel essentials and refined finishing.</p>
-          <a class="btn btn-primary" href="products.html">Explore</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="cat-img"><img src="images/casual.jpg" alt="Casual"></div>
-        <div class="card-body">
-          <h3>Casual</h3>
-          <p>Clean basics for daily comfort and simple styling.</p>
-          <a class="btn btn-primary" href="products.html">Explore</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Why Style & Trend?</h2>
-    <p class="section-sub">Simple principles that keep our drops consistent.</p>
-
-    <div class="grid-4">
-      <div class="small-card">
-        <strong>Quality First</strong>
-        <span>Better fabric, better stitching, better finishing.</span>
-      </div>
-      <div class="small-card">
-        <strong>Clean Design</strong>
-        <span>Minimal palette, strong silhouette, easy to style.</span>
-      </div>
-      <div class="small-card">
-        <strong>Comfort + Fit</strong>
-        <span>Relaxed shapes that still look sharp.</span>
-      </div>
-      <div class="small-card">
-        <strong>Focused Drops</strong>
-        <span>Fewer pieces, better wardrobe building.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED PRODUCTS PREVIEW -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Featured Products</h2>
-    <p class="section-sub">A quick preview from the collection.</p>
-
-    <div class="products-grid">
-      <div class="card">
-        <div class="product-img"><img src="images/urun1.jpg" alt="Oversized T-Shirt"></div>
-        <div class="card-body">
-          <h3>Oversized T-Shirt</h3>
-          <div class="price">$29.99</div>
-          <p class="product-desc">Heavyweight cotton, relaxed fit, everyday essential.</p>
-          <a class="btn btn-primary" href="products.html">Shop</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-img"><img src="images/urun2.jpg" alt="Luxury Jacket"></div>
-        <div class="card-body">
-          <h3>Luxury Jacket</h3>
-          <div class="price">$99.99</div>
-          <p class="product-desc">Structured layering piece with premium finishing.</p>
-          <a class="btn btn-primary" href="products.html">Shop</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="product-img"><img src="images/urun3.jpg" alt="Premium Sneakers"></div>
-        <div class="card-body">
-          <h3>Premium Sneakers</h3>
-          <div class="price">$79.99</div>
-          <p class="product-desc">Minimal design, comfortable sole, clean street look.</p>
-          <a class="btn btn-primary" href="products.html">Shop</a>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:14px;">
-      <a class="btn btn-light" href="products.html">View All Products</a>
-    </div>
-  </div>
-</section>
-
-<!-- EDITORIAL -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Editorial Picks</h2>
-    <p class="section-sub">Simple outfit inspiration.</p>
-
-    <div class="grid-2">
-      <div class="media"><img src="images/edit1.jpg" alt="Edit 1"></div>
-      <div class="media"><img src="images/edit2.jpg" alt="Edit 2"></div>
-      <div class="media"><img src="images/edit3.jpg" alt="Edit 3"></div>
-      <div class="media"><img src="images/edit4.jpg" alt="Edit 4"></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Quick FAQ</h2>
-    <p class="section-sub">Before you shop, here are the basics.</p>
-
-    <div class="faq">
-      <details>
-        <summary>Do you do limited drops?</summary>
-        <p>Yes. We prefer focused releases rather than massive collections.</p>
-      </details>
-      <details>
-        <summary>Where are you based?</summary>
-        <p>We are based in Istanbul, Turkey.</p>
-      </details>
-      <details>
-        <summary>How do I choose my size?</summary>
-        <p>Message us on the Contact page with your height/weight and preferred fit.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="section">
-  <div class="container">
-    <div class="newsletter">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
       <div>
-        <h2 class="section-title" style="margin-bottom:4px;">Get the Drop</h2>
-        <p class="section-sub" style="margin:0;">New arrivals & limited releases — no spam.</p>
+        <h1>Modern Fashion</h1>
+        <p>Clean, wearable and premium-feel pieces.</p>
+
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary">Shop Now</a>
+          <a href="#editorial" class="btn btn-light">Explore</a>
+        </div>
       </div>
 
-      <form onsubmit="event.preventDefault(); alert('Subscribed!');" style="display:flex; gap:10px; flex-wrap:wrap;">
-        <input type="email" placeholder="Email address" required>
-        <button class="btn btn-primary" type="submit">Subscribe</button>
-      </form>
+      <div class="hero-media">
+        <img src="images/hero.jpg" alt="Style & Trend Hero">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div>© 2026 Style & Trend</div>
-    <div>
-      <a href="products.html">Shop</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
+  <!-- EDITORIAL -->
+  <section class="section" id="editorial">
+    <div class="container">
+      <h2 class="section-title">Editorial Picks</h2>
+      <p class="section-sub">Curated looks from our latest drops</p>
+
+      <div class="grid-3">
+        <div class="media">
+          <img src="images/edit1.jpg" alt="Editorial 1">
+        </div>
+        <div class="media">
+          <img src="images/edit2.jpg" alt="Editorial 2">
+        </div>
+        <div class="media">
+          <img src="images/edit3.jpg" alt="Editorial 3">
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script>
-  function getCart(){
-    return JSON.parse(localStorage.getItem("cart") || "[]");
-  }
-  function updateCartCount(){
-    const el = document.getElementById("cartCount");
-    if(el) el.textContent = getCart().length;
-  }
-  window.addEventListener("load", updateCartCount);
-</script>
+  <!-- FEATURE -->
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <div class="media">
+          <img src="images/edit4.jpg" alt="Editorial 4">
+        </div>
+      </div>
+
+      <div class="card card-body">
+        <h3>Designed for everyday wear</h3>
+        <p>
+          Style & Trend blends modern silhouettes with premium fabrics,
+          offering effortless outfits that transition from street to evening.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2026 Style & Trend</p>
+      <p>Modern • Clean • Wearable</p>
+    </div>
+  </footer>
+
+  <!-- CART SCRIPT -->
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateCartCount(){
+      const el = document.getElementById("cart-count");
+      if(el) el.textContent = cart.length;
+    }
+
+    updateCartCount();
+  </script>
 
 </body>
 </html>
