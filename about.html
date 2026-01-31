@@ -1,50 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Style & Trend</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="navbar">
-  <h1 class="logo"><a href="index.html">Style<span>&</span>Trend</a></h1>
-  <nav>
+<header class="nav">
+  <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
+  <nav class="menu">
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
-    <a href="about.html">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<section class="about-page">
-  <h1>About Us</h1>
-
-  <p>
-    Style & Trend was founded to bring premium fashion to everyone.
-    We believe confidence starts with style.
-  </p>
-
-  <h2>Our Mission</h2>
-  <p>
-    Deliver modern fashion with honest pricing and quality.
-  </p>
-
-  <h2>Our Vision</h2>
-  <p>
-    Become a global lifestyle brand.
-  </p>
-
-  <h2>Our Values</h2>
-  <ul>
-    <li>Quality over quantity</li>
-    <li>Customer first</li>
-    <li>Sustainability</li>
-  </ul>
+<!-- ABOUT HERO -->
+<section class="page-hero">
+  <img class="page-hero-img" src="images/about-hero.jpg" alt="About hero">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-copy">
+    <p class="kicker">ABOUT</p>
+    <h1 class="page-title">A Modern Brand Built on Detail</h1>
+    <p class="page-sub">
+      Style & Trend is a contemporary fashion label based in Istanbul, blending clean silhouettes with street energy.
+      We focus on premium feel, wearable design, and long-term wardrobe value.
+    </p>
+  </div>
 </section>
 
-<footer>
-  © 2026 Style & Trend
+<!-- INTRO SPLIT -->
+<section class="section">
+  <div class="split">
+    <div>
+      <h2 class="section-title">Our Story</h2>
+      <p class="text">
+        Founded in 2026, Style & Trend started with one idea: make fashion look effortless and feel premium—without
+        turning it into something “too formal” or “too trendy”.
+      </p>
+      <p class="text">
+        We design pieces that work across your day: from casual essentials to refined layers and statement outerwear.
+        Our mood is minimal, our fit is modern, and our details are deliberate.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">2026</div>
+          <div class="stat-label">Founded</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Core Lines</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Istanbul</div>
+          <div class="stat-label">Design Base</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <img src="images/about-studio.jpg" alt="Studio">
+      <div class="img-card-cap">
+        <span class="tag">STUDIO</span>
+        <span class="cap">Minimal space, maximum focus.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section soft">
+  <div class="section-head">
+    <h2 class="section-title">What We Stand For</h2>
+    <span class="section-muted">Simple rules that keep the brand sharp.</span>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Quality First</h3>
+      <p>Better fabric, better stitching, better fit. We build pieces to be worn often and kept longer.</p>
+    </div>
+    <div class="card">
+      <h3>Clean Design</h3>
+      <p>Minimal palettes, strong silhouettes, and refined details—so your wardrobe stays timeless.</p>
+    </div>
+    <div class="card">
+      <h3>Comfort + Shape</h3>
+      <p>Comfort isn’t optional. We balance structure and movement, so pieces feel as good as they look.</p>
+    </div>
+    <div class="card">
+      <h3>Responsible Choices</h3>
+      <p>We aim for thoughtful sourcing and smarter production runs to reduce unnecessary waste.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-title">How We Build a Collection</h2>
+    <span class="section-muted">From concept to your wardrobe.</span>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-badge">01</div>
+      <div>
+        <h3>Direction</h3>
+        <p>We define a season mood: colors, fabrics, and silhouettes that fit the brand’s identity.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-badge">02</div>
+      <div>
+        <h3>Sampling</h3>
+        <p>We create prototypes, check fit, refine seams, and adjust details until it feels right.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-badge">03</div>
+      <div>
+        <h3>Production</h3>
+        <p>We produce in controlled runs, focusing on consistent quality and finishing.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-badge">04</div>
+      <div>
+        <h3>Drop</h3>
+        <p>We release focused selections. Less noise, more strong pieces.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE + IMAGE -->
+<section class="section soft">
+  <div class="split">
+    <div class="img-card">
+      <img src="images/about-atelier.jpg" alt="Atelier">
+      <div class="img-card-cap">
+        <span class="tag">ATELIER</span>
+        <span class="cap">Hands-on refinement.</span>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="section-title">Timeline</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-year">2026</div>
+            <div class="tl-text">Brand launch — core essentials and clean street layers.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-year">2027</div>
+            <div class="tl-text">Expanded fits + seasonal capsules (limited drops).</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-year">Next</div>
+            <div class="tl-text">New fabrics, stronger tailoring, and improved sustainability.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mini-cta">
+        <p class="section-muted">Want to collaborate or ask about sourcing?</p>
+        <a class="btn btn-primary" href="contact.html">CONTACT US</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-title">FAQ</h2>
+    <span class="section-muted">Quick answers.</span>
+  </div>
+
+  <div class="faq">
+    <details>
+      <summary>Where are you based?</summary>
+      <p>We’re based in Istanbul, Turkey. We design here and work with trusted production partners.</p>
+    </details>
+    <details>
+      <summary>What style is Style & Trend?</summary>
+      <p>Modern minimalism with street influence: clean silhouettes, wearable layers, premium feel.</p>
+    </details>
+    <details>
+      <summary>Do you do limited drops?</summary>
+      <p>Yes. We prefer focused releases rather than massive collections, so each drop stays curated.</p>
+    </details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-left">
+      <a class="brand small" href="index.html">STYLE<span>&</span>TREND</a>
+      <p>© 2026 Style & Trend</p>
+    </div>
+    <div class="foot-right">
+      <a href="products.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
 </body>
