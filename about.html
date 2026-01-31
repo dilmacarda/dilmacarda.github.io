@@ -16,6 +16,9 @@
       <a href="products.html">Products</a>
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
+      <a href="cart.html">
+        Cart <span id="cartCount" class="cart-badge">0</span>
+      </a>
     </nav>
   </div>
 </header>
@@ -62,18 +65,9 @@
 
       <h3 class="section-title" style="font-size:18px;">FAQ</h3>
       <div class="faq">
-        <details>
-          <summary>Where are you based?</summary>
-          <p>We’re based in Istanbul, Turkey. We design here and work with trusted production partners.</p>
-        </details>
-        <details>
-          <summary>What style is Style & Trend?</summary>
-          <p>Modern minimalism with street influence: clean silhouettes, wearable layers, premium feel.</p>
-        </details>
-        <details>
-          <summary>Do you do limited drops?</summary>
-          <p>Yes. We prefer focused releases rather than massive collections.</p>
-        </details>
+        <details><summary>Where are you based?</summary><p>We’re based in Istanbul, Turkey.</p></details>
+        <details><summary>What style is Style & Trend?</summary><p>Modern minimalism with street influence.</p></details>
+        <details><summary>Do you do limited drops?</summary><p>Yes. Focused releases.</p></details>
       </div>
     </div>
 
@@ -83,7 +77,6 @@
         <h3>Studio Mood</h3>
         <p>Minimal workspace, clean direction, and detail-focused design choices.</p>
       </div>
-
       <div class="cat-img" style="height:260px;"><img src="images/about-atelier.png" alt="Atelier image"></div>
       <div class="card-body">
         <h3>Atelier</h3>
@@ -102,6 +95,18 @@
     </div>
   </div>
 </footer>
+
+<script>
+  function getCart() {
+    return JSON.parse(localStorage.getItem("cart") || "[]");
+  }
+  function updateCartCount() {
+    const el = document.getElementById("cartCount");
+    if (!el) return;
+    el.textContent = getCart().length;
+  }
+  window.addEventListener("load", updateCartCount);
+</script>
 
 </body>
 </html>
