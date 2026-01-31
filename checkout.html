@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout | Style & Trend</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Style<span>&</span>Trend</div>
+</header>
+
+<section class="checkout">
+    <h1>Checkout</h1>
+
+    <form onsubmit="completePayment(event)">
+        <input type="text" placeholder="Cardholder Name" required>
+        <input type="text" placeholder="Card Number" required>
+        <input type="text" placeholder="Expiry Date (MM/YY)" required>
+        <input type="text" placeholder="CVV" required>
+        <button type="submit">Complete Payment</button>
+    </form>
+</section>
+
+<script>
+function completePayment(e) {
+    e.preventDefault();
+    alert("Payment successful 🎉");
+    localStorage.removeItem("cart");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
