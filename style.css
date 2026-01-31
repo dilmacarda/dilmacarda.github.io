@@ -25,29 +25,38 @@
   border:1px solid var(--line);
   box-shadow: var(--shadow);
 
-  /* SABİT HEIGHT YOK -> kırpma bitiyor */
   height: auto;
   padding: 12px;
 
-  /* resim taşarsa da kırpma olmasın */
-  overflow: visible;
+  /* Köşeler düzgün görünsün */
+  overflow: hidden;
+
+  /* İçeriği ortala */
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* Bu sınıf sadece hero resmine özel -> başka CSS ezemez */
+/* Resmi “frame” içine alıp köşeleri düzgün yapıyoruz */
 .hero-img{
   display:block;
+  margin: 0 auto;
 
-  /* resmin tamamı görünsün */
-  width: auto !important;
-  height: auto !important;
-
+  /* Tam görünür */
+  width:auto !important;
+  height:auto !important;
   max-width: 100% !important;
   max-height: 420px !important;
-
   object-fit: contain !important;
 
-  /* ortala */
-  margin: 0 auto;
+  /* EN ÖNEMLİ: resmin de köşeleri yuvarlak olsun */
+  border-radius: calc(var(--radius) - 6px);
+
+  /* boşluklar çok sırıtmasın */
+  background: #000;
+
+  /* görüntü daha temiz dursun */
+  box-shadow: 0 10px 25px rgba(0,0,0,.10);
 }
 
 /* Mobil */
