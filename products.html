@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Style & Trend</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Style & Trend</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+      <span id="cart-count" class="cart-count">0</span>
+    </nav>
+  </header>
+
+  <!-- PRODUCTS SECTION -->
+  <section id="products" class="products-section">
+    <h2>Our Products</h2>
+    <div class="products-container">
+      <div class="product-card">
+        <img src="images/urun1.jpg" alt="T-Shirt">
+        <h3>Oversized T-Shirt</h3>
+        <p class="price">$29.99</p>
+        <button onclick="addToCart('Oversized T-Shirt', 29.99)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/urun2.jpg" alt="Luxury Jacket">
+        <h3>Luxury Jacket</h3>
+        <p class="price">$99.99</p>
+        <button onclick="addToCart('Luxury Jacket', 99.99)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/urun3.jpg" alt="Premium Sneakers">
+        <h3>Premium Sneakers</h3>
+        <p class="price">$79.99</p>
+        <button onclick="addToCart('Premium Sneakers', 79.99)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Style & Trend | Follow us on social media</p>
+  </footer>
+
+  <!-- CART SCRIPT -->
+  <script>
+    let cart = [];
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} has been added to your cart!`);
+      updateCartCount();
+    }
+
+    function updateCartCount() {
+      const count = cart.length;
+      const cartCount = document.getElementById("cart-count");
+      if(cartCount) cartCount.textContent = count;
+    }
+
+    window.onload = () => {
+      if(localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+        updateCartCount();
+      }
+    };
+  </script>
+
+</body>
+</html>
