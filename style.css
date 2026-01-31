@@ -141,7 +141,7 @@ body{
 }
 
 /* =========================
-   HERO (ESKİ HAL – COVER)
+   HERO (ESKİ HAL)
 ========================= */
 .hero{
   background: var(--white);
@@ -227,31 +227,22 @@ body{
 }
 
 /* =========================
-   EDITORIAL (RESIZED – NO BLACK – NO CROP)
+   EDITORIAL (TAM DOLU – BOŞLUK YOK)
 ========================= */
 .media{
   height: 260px;
   border-radius: var(--radius);
-  background: var(--white);       /* siyah yok */
+  overflow:hidden;
+  background:#eaeaea;
   border:1px solid var(--line);
   box-shadow: var(--shadow);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  padding: 12px;                  /* çerçeve hissi */
 }
 
 .media img{
-  max-width: 100%;
-  max-height: 100%;
-
-  width: auto;
-  height: auto;
-
-  object-fit: contain;            /* kırpma yok */
-  display:block;
+  width:100%;
+  height:100%;
+  object-fit: cover;      /* ✅ TAM DOLU */
+  object-position: center;
 }
 
 /* =========================
