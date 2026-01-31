@@ -20,34 +20,40 @@
 
 <section class="products-page">
   <h1>Our Products</h1>
-  <p class="subtitle">Modern pieces designed for everyday luxury</p>
+  <p class="subtitle">Modern pieces for everyday style</p>
 
   <div class="products-grid">
 
     <div class="product-card">
-      <img src="images/urun1.jpg" alt="Oversized T-Shirt">
+      <div class="product-image">
+        <img src="images/urun1.jpg" alt="Oversized T-Shirt">
+      </div>
       <div class="product-info">
         <h3>Oversized T-Shirt</h3>
         <p class="price">$29.99</p>
-        <button onclick="addToCart('Oversized T-Shirt', 29.99)">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card">
-      <img src="images/urun2.jpg" alt="Luxury Jacket">
+      <div class="product-image">
+        <img src="images/urun2.jpg" alt="Luxury Jacket">
+      </div>
       <div class="product-info">
         <h3>Luxury Jacket</h3>
         <p class="price">$99.99</p>
-        <button onclick="addToCart('Luxury Jacket', 99.99)">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card">
-      <img src="images/urun3.jpg" alt="Premium Sneakers">
+      <div class="product-image">
+        <img src="images/urun3.jpg" alt="Premium Sneakers">
+      </div>
       <div class="product-info">
         <h3>Premium Sneakers</h3>
         <p class="price">$79.99</p>
-        <button onclick="addToCart('Premium Sneakers', 79.99)">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
     </div>
 
@@ -57,16 +63,6 @@
 <footer>
   © 2026 Style & Trend
 </footer>
-
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function addToCart(name, price) {
-  cart.push({ name, price });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert(name + " added to cart");
-}
-</script>
 
 </body>
 </html>
