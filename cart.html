@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart | Style & Trend</title>
-  <link rel="stylesheet" href="style.css"/>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,10 +21,7 @@
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-
-      <a href="cart.html" class="active">
-        Cart <span id="cartCount" class="cart-badge">0</span>
-      </a>
+      <a href="cart.html" class="active">Cart <span id="cartCount" class="cart-badge">0</span></a>
     </nav>
   </div>
 </header>
@@ -27,90 +29,25 @@
 <section class="section">
   <div class="container">
     <h2 class="section-title">Your Cart</h2>
-    <p class="section-sub">Review your items before checkout.</p>
-
-    <div class="card">
-      <div class="card-body">
-        <ul id="cartList" class="cart-list"></ul>
-        <div id="total" class="total"></div>
-
-        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn btn-light" href="products.html">Continue Shopping</a>
-          <a class="btn btn-primary" href="checkout.html">Checkout</a>
-        </div>
-      </div>
-    </div>
+    <p class="section-sub">Items you added to your bag.</p>
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div>© 2026 Style & Trend</div>
-    <div>
-      <a href="products.html">Shop</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </div>
   </div>
 </footer>
 
 <script>
-  function getCart() {
+  function getCart(){
     return JSON.parse(localStorage.getItem("cart") || "[]");
   }
-  function setCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-  function updateCartCount() {
+  function updateCartCount(){
     const el = document.getElementById("cartCount");
-    if (!el) return;
-    el.textContent = getCart().length;
+    if(el) el.textContent = getCart().length;
   }
-
-  function renderCart() {
-    const list = document.getElementById("cartList");
-    const totalEl = document.getElementById("total");
-    const cart = getCart();
-
-    list.innerHTML = "";
-    let total = 0;
-
-    if (cart.length === 0) {
-      list.innerHTML = "<li style='color:#666;'>Your cart is empty.</li>";
-      totalEl.textContent = "";
-      return;
-    }
-
-    cart.forEach((item, index) => {
-      total += item.price;
-
-      const li = document.createElement("li");
-      li.className = "cart-item";
-      li.innerHTML = `
-        <div>
-          <strong>${item.name}</strong>
-          <span>$${item.price.toFixed(2)}</span>
-        </div>
-        <button onclick="removeItem(${index})">Remove</button>
-      `;
-      list.appendChild(li);
-    });
-
-    totalEl.textContent = "Total: $" + total.toFixed(2);
-  }
-
-  function removeItem(i) {
-    const cart = getCart();
-    cart.splice(i, 1);
-    setCart(cart);
-    updateCartCount();
-    renderCart();
-  }
-
-  window.addEventListener("load", () => {
-    updateCartCount();
-    renderCart();
-  });
+  window.addEventListener("load", updateCartCount);
 </script>
 
 </body>
