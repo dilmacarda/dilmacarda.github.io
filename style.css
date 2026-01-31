@@ -1,123 +1,9 @@
-/* =========================
-   SIMPLE CLEAN THEME (student-friendly)
-========================= */
-
-:root{
-  --bg:#f5f5f5;
-  --white:#ffffff;
-  --text:#1f1f1f;
-  --muted:#666;
-  --line:#e6e6e6;
-  --shadow:0 8px 18px rgba(0,0,0,.08);
-  --radius:14px;
-  --brand:#ff5fa2;
-  --max:1100px;
-}
-
-*{ margin:0; padding:0; box-sizing:border-box; }
-body{
-  font-family: Inter, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-/* Container */
-.section{ padding: 46px 18px; }
-.container{ max-width: var(--max); margin: 0 auto; }
-
-/* Header */
-.nav{
-  position: sticky;
-  top:0;
-  z-index:50;
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
-}
-.brand{
-  text-decoration:none;
-  color: var(--text);
-  font-weight: 700;
-  letter-spacing:.06em;
-}
-.brand span{ color: var(--brand); }
-
-.menu{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items:center;
-}
-.menu a{
-  text-decoration:none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 14px;
-  opacity:.8;
-  padding: 6px 10px;
-  border-radius: 10px;
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-}
-.menu a:hover{ background:#f1f1f1; opacity:1; }
-.menu a.active{ background:#f1f1f1; opacity:1; }
-
-/* Cart badge */
-.cart-badge{
-  min-width: 22px;
-  height: 22px;
-  padding: 0 6px;
-  border-radius: 999px;
-  background: var(--text);
-  color: var(--white);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-/* Buttons */
-.btn{
-  display:inline-block;
-  border:none;
-  text-decoration:none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor:pointer;
-}
-.btn-primary{
-  background: var(--text);
-  color: var(--white);
-}
-.btn-primary:hover{ filter: brightness(1.08); }
-.btn-light{
-  background:#f0f0f0;
-  color: var(--text);
-}
-.btn-light:hover{ background:#e9e9e9; }
-
-/* TITLES */
-.section-title{ font-size: 24px; margin-bottom: 10px; }
-.section-sub{ color: var(--muted); margin-bottom: 18px; }
-
-/* HERO (KIRPMA YOK, ZOOM YOK) */
+/* HERO (KESİNLİKLE KIRPMA YOK) */
 .hero{
   background: var(--white);
   border-bottom: 1px solid var(--line);
 }
+
 .hero-inner{
   max-width: var(--max);
   margin: 0 auto;
@@ -127,238 +13,46 @@ body{
   gap: 18px;
   align-items:center;
 }
+
 .hero h1{ font-size: 42px; line-height: 1.1; }
 .hero p{ color: var(--muted); margin-top: 10px; }
 .hero-actions{ margin-top: 16px; display:flex; gap:10px; flex-wrap:wrap; }
 
+/* Hero image box artık resme göre uzar */
 .hero-media{
   background:#f0f0f0;
   border-radius: var(--radius);
   border:1px solid var(--line);
   box-shadow: var(--shadow);
 
-  /* daha büyük: “tam görünmüyor” hissini azaltır */
-  height: 360px;
+  /* SABİT HEIGHT YOK -> kırpma bitiyor */
+  height: auto;
+  padding: 12px;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  /* resim taşarsa da kırpma olmasın */
+  overflow: visible;
 }
 
-.hero-media img{
-  /* EN KRİTİK: kırpma/zoom yok */
-  width:auto;
-  height:auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+/* Bu sınıf sadece hero resmine özel -> başka CSS ezemez */
+.hero-img{
   display:block;
-}
 
-/* Cards */
-.grid-3{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-.card{
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow:hidden;
-}
-.card-body{ padding: 14px; }
-.card h3{ font-size: 18px; margin-bottom: 6px; }
-.card p{ color: var(--muted); font-size: 14px; }
+  /* resmin tamamı görünsün */
+  width: auto !important;
+  height: auto !important;
 
-/* Category cards */
-.cat-img{ height: 170px; background:#eaeaea; }
-.cat-img img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
+  max-width: 100% !important;
+  max-height: 420px !important;
 
-/* Editorial */
-.grid-2{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-.media{
-  height: 220px;
-  border-radius: var(--radius);
-  overflow:hidden;
-  background:#eaeaea;
-  border:1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-.media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
+  object-fit: contain !important;
 
-/* Banner */
-.banner{
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow:hidden;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-}
-.banner .media{ height: 320px; box-shadow:none; border:none; border-radius:0; }
-.banner-content{
-  padding: 18px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.banner-content h2{ font-size: 28px; margin-bottom: 6px; }
-.banner-content p{ color: var(--muted); margin-bottom: 12px; }
-
-/* Products */
-.products-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-}
-.product-img{ height: 220px; background:#eaeaea; }
-.product-img img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
-.price{ font-weight: 800; margin-top: 4px; }
-.product-desc{ margin-top: 8px; }
-
-/* Extra: chips + small grids for longer homepage */
-.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 12px; }
-.chip{
-  background:#f0f0f0;
-  border:1px solid var(--line);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  color:#333;
-}
-.grid-4{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-.small-card{
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 14px;
-}
-.small-card strong{ display:block; margin-bottom: 6px; }
-.small-card span{ color: var(--muted); font-size: 13px; }
-
-/* Newsletter */
-.newsletter{
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px;
-  display:flex;
-  gap: 12px;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-}
-.newsletter input{
-  padding: 10px 12px;
-  border-radius: 10px;
-  border:1px solid var(--line);
-  min-width: 240px;
-  outline:none;
-}
-
-/* FAQ */
-.faq details{
-  background: var(--white);
-  border:1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 10px 12px;
-  margin-bottom: 10px;
-}
-.faq summary{ cursor:pointer; font-weight:700; }
-.faq p{ color: var(--muted); margin-top: 8px; }
-
-/* Toast */
-.toast{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 999;
-  background: var(--text);
-  color: var(--white);
-  border-radius: 14px;
-  box-shadow: 0 14px 34px rgba(0,0,0,.18);
-  padding: 12px 14px;
-  min-width: 220px;
-  display:flex;
-  gap: 10px;
-  align-items:flex-start;
-  transform: translateY(16px);
-  opacity: 0;
-  pointer-events:none;
-  transition: .25s ease;
-}
-.toast.show{
-  transform: translateY(0);
-  opacity: 1;
-}
-.toast .dot{
-  width: 10px; height: 10px;
-  border-radius: 999px;
-  background: var(--brand);
-  margin-top: 6px;
-}
-.toast strong{ display:block; font-size: 14px; }
-.toast small{ color: rgba(255,255,255,.75); }
-
-/* Footer */
-.footer{
-  margin-top: 24px;
-  background: var(--white);
-  border-top: 1px solid var(--line);
-}
-.footer-inner{
-  max-width: var(--max);
+  /* ortala */
   margin: 0 auto;
-  padding: 16px 18px;
-  display:flex;
-  justify-content:space-between;
-  gap: 12px;
-  flex-wrap:wrap;
-  color: var(--muted);
-  font-size: 14px;
 }
-.footer-inner a{ color: var(--muted); text-decoration:none; }
-.footer-inner a:hover{ text-decoration: underline; }
 
-/* Responsive */
+/* Mobil */
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
   .hero h1{ font-size: 34px; }
-  .hero-media{ height: 260px; }
-
-  .grid-3{ grid-template-columns: 1fr; }
-  .grid-2{ grid-template-columns: 1fr; }
-  .grid-4{ grid-template-columns: 1fr; }
-  .banner{ grid-template-columns: 1fr; }
+  .hero-img{ max-height: 360px !important; }
 }
