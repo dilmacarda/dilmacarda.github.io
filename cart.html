@@ -1,97 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cart | Style & Trend</title>
+
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<div class="navbar">
-  <div class="container">
-    <a class="logo" href="index.html">STYLE<span>&</span>TREND</a>
-    <div class="nav-links">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
+    <nav class="menu">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a class="active" href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
-    </div>
+      <a href="cart.html" class="active">Cart <span id="cartCount" class="cart-badge">0</span></a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="section">
+<section class="section">
   <div class="container">
-    <h2>Your Cart</h2>
-    <p class="muted">Items you added to your bag.</p>
+    <h2 class="section-title">Your Cart</h2>
+    <p class="section-sub">Items you added will appear here.</p>
 
-    <div id="empty" class="muted" style="display:none;">Your cart is empty.</div>
-    <div id="items" style="display:flex; flex-direction:column; gap:10px;"></div>
+    <div class="card">
+      <div class="card-body">
+        <div id="empty" class="section-sub" style="display:none;">Your cart is empty.</div>
+        <div id="items" style="display:flex; flex-direction:column; gap:10px;"></div>
 
-    <div class="total">
-      <div>Total: <span id="total">$0.00</span></div>
-      <button class="btn btn-light" onclick="clearCart()">Clear</button>
+        <div style="margin-top:14px; border-top:1px solid #e6e6e6; padding-top:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div style="font-weight:900;">Total: <span id="total">$0.00</span></div>
+          <button class="btn btn-light" onclick="clearCart()">Clear</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="footer">
-  <div class="container">
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
     <div>© 2026 Style & Trend</div>
     <div><a href="products.html">Shop</a></div>
   </div>
-</div>
+</footer>
 
 <script>
   function getCart(){ return JSON.parse(localStorage.getItem("cart") || "[]"); }
   function setCart(cart){ localStorage.setItem("cart", JSON.stringify(cart)); }
   function money(n){ return "$" + Number(n).toFixed(2); }
 
-  function updateCount(){
-    document.getElementById("cartCount").textContent = getCart().length;
+  function updateCartCount(){
+    const el = document.getElementById("cartCount");
+    if(el) el.textContent = getCart().length;
   }
 
   function removeItem(i){
     const cart = getCart();
     cart.splice(i, 1);
     setCart(cart);
-    render();
+    renderCart();
   }
 
   function clearCart(){
     localStorage.removeItem("cart");
-    render();
+    renderCart();
   }
 
-  function render(){
+  function renderCart(){
     const cart = getCart();
-    updateCount();
+    updateCartCount();
 
     const empty = document.getElementById("empty");
     const items = document.getElementById("items");
     const totalEl = document.getElementById("total");
 
     items.innerHTML = "";
+
     if(cart.length === 0){
       empty.style.display = "block";
       totalEl.textContent = "$0.00";
       return;
     }
-    empty.style.display = "none";
 
+    empty.style.display = "none";
     let total = 0;
+
     cart.forEach((item, i) => {
       total += Number(item.price || 0);
+
       const row = document.createElement("div");
-      row.className = "row";
+      row.className = "card";
       row.innerHTML = `
-        <div>
-          <div><b>${item.name}</b></div>
-          <div class="muted">${money(item.price)}</div>
+        <div class="card-body" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+          <div>
+            <div style="font-weight:900;">${item.name}</div>
+            <div class="section-sub" style="margin:4px 0 0;">${money(item.price)}</div>
+          </div>
+          <button class="btn btn-light" onclick="removeItem(${i})">Remove</button>
         </div>
-        <button class="btn btn-light" onclick="removeItem(${i})">Remove</button>
       `;
       items.appendChild(row);
     });
@@ -99,7 +111,7 @@
     totalEl.textContent = money(total);
   }
 
-  window.onload = render;
+  window.addEventListener("load", renderCart);
 </script>
 
 </body>
