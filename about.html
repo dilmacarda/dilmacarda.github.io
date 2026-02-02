@@ -1,121 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Style & Trend</title>
-
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css"/>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
-    <nav class="menu">
+<div class="navbar">
+  <div class="container">
+    <a class="logo" href="index.html">STYLE<span>&</span>TREND</a>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
-      <a href="about.html" class="active">About</a>
+      <a class="active" href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="cart.html">Cart <span id="cartCount" class="cart-badge">0</span></a>
-    </nav>
+      <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+    </div>
   </div>
-</header>
+</div>
 
-<section class="section">
+<div class="section">
   <div class="container">
-    <h2 class="section-title">About Us</h2>
-
-    <!-- ✅ ESKİ YAZI GERİ GELDİ -->
-    <p class="section-sub">We are a fashion brand based in Istanbul, Turkey.</p>
+    <h2>About Us</h2>
+    <p class="muted">We are a fashion brand based in Istanbul, Turkey.</p>
 
     <div class="card">
-      <div class="card-body">
+      <div class="pad">
         <h3>Our Story</h3>
-        <p>
-          Style & Trend started as a simple idea: build a wardrobe that feels premium and modern,
-          without being overdone. We keep designs clean, easy to wear, and consistent — so you can
-          style pieces again and again.
-        </p>
-        <p>
-          Our collections blend street influence with minimal luxury details. We focus on fit,
-          comfort and finishing, because a good piece should feel right the moment you put it on.
+        <p class="muted">
+          Style & Trend focuses on clean design, wearable basics, and premium-feel pieces.
+          We keep drops small and consistent so you can build a wardrobe easily.
         </p>
       </div>
     </div>
 
     <div style="height:14px;"></div>
 
-    <!-- ✅ FOTOĞRAFLAR KIRPILMASIN DİYE about-media KULLANIYORUM -->
-    <div class="grid-2">
-      <div class="about-media">
-        <img src="images/edit1.jpg" alt="Studio Mood">
-      </div>
-      <div class="about-media">
-        <img src="images/edit2.jpg" alt="Details">
-      </div>
+    <div class="grid grid-2">
+      <div class="card about-img"><img src="images/edit1.jpg" alt="Edit 1"></div>
+      <div class="card about-img"><img src="images/edit2.jpg" alt="Edit 2"></div>
     </div>
 
     <div style="height:14px;"></div>
 
-    <div class="grid-2">
-      <div class="about-media">
-        <img src="images/edit3.jpg" alt="Editorial">
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h3>What we care about</h3>
-          <p>
-            <strong>Quality First:</strong> We keep fabric and stitching standards high.
-            Pieces should hold their form and feel good long-term.
-          </p>
-          <p>
-            <strong>Clean Design:</strong> Minimal palette, strong silhouettes, easy styling.
-          </p>
-          <p>
-            <strong>Focused Drops:</strong> Fewer pieces, better wardrobe building.
-          </p>
-          <p>
-            If you want to collaborate or ask sizing questions, use the Contact page — we reply as fast as possible.
-          </p>
-        </div>
-      </div>
+    <div class="grid grid-2">
+      <div class="card about-img"><img src="images/edit3.jpg" alt="Edit 3"></div>
+      <div class="card about-img"><img src="images/edit4.jpg" alt="Edit 4"></div>
     </div>
-
-    <div style="height:14px;"></div>
-
-    <div class="about-media">
-      <img src="images/edit4.jpg" alt="Behind the scenes">
-    </div>
-
   </div>
-</section>
+</div>
 
-<footer class="footer">
-  <div class="footer-inner">
+<div class="footer">
+  <div class="container">
     <div>© 2026 Style & Trend</div>
-    <div>
-      <a href="products.html">Shop</a> ·
-      <a href="contact.html">Contact</a>
-    </div>
+    <div><a href="products.html">Shop</a> · <a href="contact.html">Contact</a></div>
   </div>
-</footer>
+</div>
 
 <script>
-  function getCart(){
-    return JSON.parse(localStorage.getItem("cart") || "[]");
-  }
-  function updateCartCount(){
+  function getCart(){ return JSON.parse(localStorage.getItem("cart") || "[]"); }
+  function updateCount(){
     const el = document.getElementById("cartCount");
     if(el) el.textContent = getCart().length;
   }
-  window.addEventListener("load", updateCartCount);
+  window.onload = updateCount;
 </script>
 
 </body>
