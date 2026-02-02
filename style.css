@@ -1,53 +1,81 @@
-/* ===== Clean theme (course-level, but looks good) ===== */
-*{margin:0;padding:0;box-sizing:border-box}
+/* ========= Clean theme (HTML level: simple, CSS level: nice) ========= */
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body{
   font-family: Arial, sans-serif;
-  background:#f4f4f4;
+  background:#f5f5f5;
   color:#111;
   line-height:1.6;
 }
 
-.container{max-width:1100px;margin:0 auto;padding:0 16px}
-.section{padding:40px 0}
+/* Generic layout */
+.container{ max-width:1100px; margin:0 auto; padding:0 16px; }
+.section{ padding:42px 0; }
 
-a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline}
+/* Links */
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-/* Navbar */
-.navbar{
+/* =========================
+   NAV (senin HTML: .nav .nav-inner .brand .menu)
+========================= */
+.nav{
   background:#fff;
   border-bottom:1px solid #e6e6e6;
-  position:sticky;top:0;z-index:10;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
-.navbar .container{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 16px;
-}
-.logo{font-weight:800;letter-spacing:1px}
-.logo span{color:#ff5fa2}
 
-.nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.nav-links a{
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.brand{
+  font-weight:800;
+  letter-spacing:1px;
+}
+.brand span{ color:#ff5fa2; }
+
+.menu{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.menu a{
   font-weight:700;
   font-size:14px;
   padding:6px 10px;
   border-radius:8px;
   opacity:.85;
 }
-.nav-links a.active{background:#f1f1f1;opacity:1}
-.badge{
-  background:#111;color:#fff;
+.menu a:hover{ background:#f1f1f1; opacity:1; }
+.menu a.active{ background:#f1f1f1; opacity:1; }
+
+/* Cart badge (senin HTML: .cart-badge) */
+.cart-badge{
+  background:#111;
+  color:#fff;
   border-radius:999px;
   padding:2px 8px;
   font-size:12px;
+  font-weight:800;
+  display:inline-block;
+  vertical-align:middle;
 }
 
-/* Titles */
-h1{font-size:34px;margin-bottom:10px}
-h2{font-size:24px;margin-bottom:10px}
-p.muted{color:#666;margin-bottom:16px}
-
-/* Buttons */
+/* =========================
+   BUTTONS (senin HTML: .btn .btn-primary .btn-light)
+========================= */
 .btn{
   display:inline-block;
   padding:10px 14px;
@@ -57,81 +85,267 @@ p.muted{color:#666;margin-bottom:16px}
   border:none;
   cursor:pointer;
 }
-.btn-dark{background:#111;color:#fff}
-.btn-light{background:#eaeaea;color:#111}
+.btn-primary{ background:#111; color:#fff; }
+.btn-light{ background:#eaeaea; color:#111; }
 
-/* Cards */
+/* =========================
+   TITLES (senin HTML: .section-title .section-sub)
+========================= */
+.section-title{ font-size:26px; margin-bottom:10px; }
+.section-sub{ color:#666; margin-bottom:16px; }
+
+/* =========================
+   HERO (senin HTML: .hero .hero-inner .hero-actions .hero-media)
+========================= */
+.hero{
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.hero-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:28px 16px;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:18px;
+  align-items:center;
+}
+
+.hero h1{ font-size:42px; }
+.hero p{ color:#666; margin-top:8px; }
+
+.hero-actions{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* ✅ HERO resminin devasa olmaması + düzgün görünmesi */
+.hero-media{
+  height:320px;              /* sabit */
+  border-radius:14px;
+  overflow:hidden;
+  background:#ddd;
+  border:1px solid #e6e6e6;
+}
+
+.hero-media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;          /* hero’da normal */
+  object-position:center 35%;
+}
+
+/* =========================
+   CARDS / GRIDS
+========================= */
 .card{
   background:#fff;
   border:1px solid #e6e6e6;
   border-radius:14px;
   overflow:hidden;
 }
-.card .pad{padding:14px}
 
-/* Grid */
-.grid{
+.card-body{ padding:14px; }
+
+.card h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.card p{ color:#666; font-size:14px; }
+
+/* index: .grid-3 .grid-2 */
+.grid-3{
   display:grid;
+  grid-template-columns:repeat(3,1fr);
   gap:14px;
 }
-.grid-3{grid-template-columns:repeat(3,1fr)}
-.grid-2{grid-template-columns:repeat(2,1fr)}
-@media (max-width:900px){
-  .grid-3,.grid-2{grid-template-columns:1fr}
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
 }
 
-/* Images */
-.img-box{
+/* index: category images (senin HTML: .cat-img) */
+.cat-img{
   height:220px;
   background:#ddd;
   overflow:hidden;
 }
-.img-box img{
+.cat-img img{
   width:100%;
   height:100%;
   object-fit:cover;
-}
-
-/* About images (no crop) */
-.about-img img{
-  width:100%;
-  height:auto;
   display:block;
 }
 
-/* Cart list rows */
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  padding:12px 14px;
+/* editorial (senin HTML: .media) */
+.media{
+  height:260px;
+  border-radius:14px;
+  overflow:hidden;
   border:1px solid #e6e6e6;
-  border-radius:12px;
-  background:#fff;
+  background:#ddd;
 }
-.total{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:14px;
-  padding-top:14px;
-  border-top:1px solid #e6e6e6;
-  font-weight:900;
+.media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;   /* editorial tam dolu */
+  display:block;
 }
 
-/* Footer */
+/* =========================
+   PRODUCTS (senin HTML: .products-grid .product-img .price)
+========================= */
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:14px;
+}
+
+.product-img{
+  height:220px;
+  background:#ddd;
+  overflow:hidden;
+}
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.price{ font-weight:900; margin-top:4px; }
+
+/* =========================
+   ABOUT images (senin HTML: .about-media) -> kırpma yok
+========================= */
+.about-media{
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:14px;
+  overflow:hidden;
+}
+.about-media img{
+  width:100%;
+  height:auto;      /* ✅ kırpma yok */
+  display:block;
+}
+
+/* =========================
+   FAQ (senin HTML: .faq)
+========================= */
+.faq details{
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:14px;
+  padding:12px 14px;
+  margin-bottom:10px;
+}
+.faq summary{
+  cursor:pointer;
+  font-weight:800;
+}
+
+/* =========================
+   NEWSLETTER (senin HTML: .newsletter)
+========================= */
+.newsletter{
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:14px;
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.newsletter input{
+  padding:10px 12px;
+  border:1px solid #e6e6e6;
+  border-radius:10px;
+}
+
+/* =========================
+   CONTACT (senin HTML: .contact-form .full .contact-map)
+========================= */
+.contact-form{
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:14px;
+  padding:18px;
+}
+
+.contact-form form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.full{ grid-column:1 / -1; }
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #e6e6e6;
+  border-radius:10px;
+  font-family:inherit;
+}
+
+.contact-form textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.contact-map{
+  margin-top:14px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid #e6e6e6;
+}
+.contact-map iframe{
+  width:100%;
+  height:260px;
+  border:0;
+}
+
+/* =========================
+   FOOTER (senin HTML: .footer .footer-inner)
+========================= */
 .footer{
-  margin-top:20px;
   background:#fff;
   border-top:1px solid #e6e6e6;
+  margin-top:20px;
 }
-.footer .container{
-  padding:16px;
+
+.footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:16px 16px;
   display:flex;
   justify-content:space-between;
   flex-wrap:wrap;
   gap:10px;
   color:#666;
   font-size:14px;
+}
+
+.footer a{ color:#666; }
+.footer a:hover{ text-decoration:underline; }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:900px){
+  .hero-inner{ grid-template-columns:1fr; }
+  .hero-media{ height:260px; }
+  .grid-3, .grid-2{ grid-template-columns:1fr; }
+  .contact-form form{ grid-template-columns:1fr; }
 }
