@@ -1,161 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart | Style & Trend</title>
-
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css"/>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
-    <nav class="menu">
+<div class="navbar">
+  <div class="container">
+    <a class="logo" href="index.html">STYLE<span>&</span>TREND</a>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="cart.html" class="active">Cart <span id="cartCount" class="cart-badge">0</span></a>
-    </nav>
+      <a class="active" href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+    </div>
   </div>
-</header>
+</div>
 
-<section class="section">
+<div class="section">
   <div class="container">
-    <h2 class="section-title">Your Cart</h2>
-    <p class="section-sub">Items you added to your bag.</p>
+    <h2>Your Cart</h2>
+    <p class="muted">Items you added to your bag.</p>
 
-    <div class="card">
-      <div class="card-body">
-        <div id="emptyState" class="section-sub" style="display:none; margin:0;">
-          Your cart is empty. <a href="products.html">Go to products</a>.
-        </div>
+    <div id="empty" class="muted" style="display:none;">Your cart is empty.</div>
+    <div id="items" style="display:flex; flex-direction:column; gap:10px;"></div>
 
-        <div id="cartWrap" style="display:none;">
-          <div id="cartItems" style="display:flex; flex-direction:column; gap:10px;"></div>
-
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; border-top:1px solid var(--line); padding-top:14px;">
-            <div style="font-weight:800;">Total: <span id="totalPrice">$0.00</span></div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button class="btn btn-light" onclick="clearCart()">Clear cart</button>
-              <a class="btn btn-primary" href="products.html">Continue shopping</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <div class="total">
+      <div>Total: <span id="total">$0.00</span></div>
+      <button class="btn btn-light" onclick="clearCart()">Clear</button>
     </div>
-
   </div>
-</section>
+</div>
 
-<footer class="footer">
-  <div class="footer-inner">
+<div class="footer">
+  <div class="container">
     <div>© 2026 Style & Trend</div>
-    <div>
-      <a href="products.html">Shop</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </div>
+    <div><a href="products.html">Shop</a></div>
   </div>
-</footer>
+</div>
 
 <script>
-  function getCartAnyKey(){
-    const keys = ["cart", "cartItems", "basket", "sepet"];
-    for(const k of keys){
-      const raw = localStorage.getItem(k);
-      if(raw){
-        try {
-          const parsed = JSON.parse(raw);
-          if(Array.isArray(parsed)) return { key: k, cart: parsed };
-        } catch(e){}
-      }
-    }
-    return { key: "cart", cart: [] };
+  function getCart(){ return JSON.parse(localStorage.getItem("cart") || "[]"); }
+  function setCart(cart){ localStorage.setItem("cart", JSON.stringify(cart)); }
+  function money(n){ return "$" + Number(n).toFixed(2); }
+
+  function updateCount(){
+    document.getElementById("cartCount").textContent = getCart().length;
   }
 
-  function normalizeCart(){
-    const found = getCartAnyKey();
-    localStorage.setItem("cart", JSON.stringify(found.cart));
-    if(found.key !== "cart") localStorage.removeItem(found.key);
-    return found.cart;
-  }
-
-  function updateCartCount(){
-    const el = document.getElementById("cartCount");
-    if(el) el.textContent = normalizeCart().length;
-  }
-
-  function formatMoney(n){
-    return "$" + Number(n).toFixed(2);
-  }
-
-  function setCart(cart){
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-
-  function removeItem(index){
-    const cart = normalizeCart();
-    cart.splice(index, 1);
+  function removeItem(i){
+    const cart = getCart();
+    cart.splice(i, 1);
     setCart(cart);
-    renderCart();
+    render();
   }
 
   function clearCart(){
     localStorage.removeItem("cart");
-    renderCart();
+    render();
   }
 
-  function renderCart(){
-    const cart = normalizeCart();
-    updateCartCount();
+  function render(){
+    const cart = getCart();
+    updateCount();
 
-    const emptyState = document.getElementById("emptyState");
-    const cartWrap = document.getElementById("cartWrap");
-    const cartItems = document.getElementById("cartItems");
-    const totalPrice = document.getElementById("totalPrice");
+    const empty = document.getElementById("empty");
+    const items = document.getElementById("items");
+    const totalEl = document.getElementById("total");
 
+    items.innerHTML = "";
     if(cart.length === 0){
-      emptyState.style.display = "block";
-      cartWrap.style.display = "none";
+      empty.style.display = "block";
+      totalEl.textContent = "$0.00";
       return;
     }
+    empty.style.display = "none";
 
-    emptyState.style.display = "none";
-    cartWrap.style.display = "block";
-
-    cartItems.innerHTML = "";
     let total = 0;
-
     cart.forEach((item, i) => {
       total += Number(item.price || 0);
-
       const row = document.createElement("div");
-      row.className = "card";
+      row.className = "row";
       row.innerHTML = `
-        <div class="card-body" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-          <div>
-            <div style="font-weight:800;">${item.name || "Item"}</div>
-            <div class="section-sub" style="margin:4px 0 0;">${formatMoney(item.price || 0)}</div>
-          </div>
-          <button class="btn btn-light" onclick="removeItem(${i})">Remove</button>
+        <div>
+          <div><b>${item.name}</b></div>
+          <div class="muted">${money(item.price)}</div>
         </div>
+        <button class="btn btn-light" onclick="removeItem(${i})">Remove</button>
       `;
-      cartItems.appendChild(row);
+      items.appendChild(row);
     });
 
-    totalPrice.textContent = formatMoney(total);
+    totalEl.textContent = money(total);
   }
 
-  window.addEventListener("load", renderCart);
+  window.onload = render;
 </script>
 
 </body>
