@@ -1,72 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Style & Trend</title>
+
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<div class="navbar">
-  <div class="container">
-    <a class="logo" href="index.html">STYLE<span>&</span>TREND</a>
-    <div class="nav-links">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">STYLE<span>&</span>TREND</a>
+    <nav class="menu">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
-      <a class="active" href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
-      <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
-    </div>
+      <a href="cart.html">Cart <span id="cartCount" class="cart-badge">0</span></a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="section">
+<section class="section">
   <div class="container">
-    <h2>About Us</h2>
-    <p class="muted">We are a fashion brand based in Istanbul, Turkey.</p>
+
+    <h2 class="section-title">About Us</h2>
+    <p class="section-sub">We are a fashion brand based in Istanbul, Turkey.</p>
 
     <div class="card">
-      <div class="pad">
+      <div class="card-body">
         <h3>Our Story</h3>
-        <p class="muted">
-          Style & Trend focuses on clean design, wearable basics, and premium-feel pieces.
-          We keep drops small and consistent so you can build a wardrobe easily.
+        <p>
+          Style & Trend was created with one simple goal: make modern pieces that feel premium,
+          look clean, and stay easy to wear every day. We focus on silhouettes that work in real life —
+          not over-designed items that only look good in photos.
+        </p>
+        <p style="margin-top:10px;">
+          Our collections are built around three main moods: Streetwear, Luxury, and Casual.
+          Streetwear gives you relaxed fits, bold comfort, and that “effortless” vibe. Luxury is about
+          refined details — better finishing, sharper structure, and timeless color choices. Casual is the
+          backbone: everyday pieces that you can style quickly without thinking too much.
+        </p>
+        <p style="margin-top:10px;">
+          We also keep our drops focused. Instead of uploading hundreds of products, we prefer fewer
+          pieces that work together as a small wardrobe. This makes it easier to mix items, build outfits,
+          and upgrade your style without wasting money on things you won’t wear.
+        </p>
+        <p style="margin-top:10px;">
+          If you ever need sizing help, product questions, or want to collaborate, you can reach us from
+          the Contact page. We reply as fast as we can and always try to help with honest recommendations.
         </p>
       </div>
     </div>
 
     <div style="height:14px;"></div>
 
-    <div class="grid grid-2">
-      <div class="card about-img"><img src="images/edit1.jpg" alt="Edit 1"></div>
-      <div class="card about-img"><img src="images/edit2.jpg" alt="Edit 2"></div>
+    <div class="grid-3">
+      <div class="card"><div class="card-body"><h3>Quality First</h3><p>We pick better fabrics and keep details clean.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Simple Styling</h3><p>Pieces designed to match easily, no overthinking.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Focused Drops</h3><p>Smaller releases so every piece stays meaningful.</p></div></div>
     </div>
 
-    <div style="height:14px;"></div>
-
-    <div class="grid grid-2">
-      <div class="card about-img"><img src="images/edit3.jpg" alt="Edit 3"></div>
-      <div class="card about-img"><img src="images/edit4.jpg" alt="Edit 4"></div>
-    </div>
   </div>
-</div>
+</section>
 
-<div class="footer">
-  <div class="container">
+<footer class="footer">
+  <div class="footer-inner">
     <div>© 2026 Style & Trend</div>
     <div><a href="products.html">Shop</a> · <a href="contact.html">Contact</a></div>
   </div>
-</div>
+</footer>
 
 <script>
   function getCart(){ return JSON.parse(localStorage.getItem("cart") || "[]"); }
-  function updateCount(){
+  function updateCartCount(){
     const el = document.getElementById("cartCount");
     if(el) el.textContent = getCart().length;
   }
-  window.onload = updateCount;
+  window.addEventListener("load", updateCartCount);
 </script>
 
 </body>
