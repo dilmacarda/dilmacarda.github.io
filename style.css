@@ -63,6 +63,7 @@ a:hover{ text-decoration: underline; }
   padding: 2px 8px;
   font-size: 12px;
   font-weight: 800;
+  display:inline-block;
 }
 
 /* ================= TITLES ================= */
@@ -81,6 +82,53 @@ a:hover{ text-decoration: underline; }
 }
 .btn-primary{ background:#111; color:#fff; }
 .btn-light{ background:#eaeaea; color:#111; }
+
+/* ================= HERO (KESİN KİLİT) ================= */
+.hero{
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.hero-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.hero h1{ font-size: 42px; }
+.hero p{ color: #666; margin-top: 8px; }
+
+.hero-actions{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ✅ Devasa olmasın diye sabit + max */
+.hero-media{
+  height: 320px !important;
+  max-height: 320px !important;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ddd;
+  border: 1px solid #e6e6e6;
+}
+
+/* ✅ img'yi de kilitle: başka CSS çakışsa bile */
+.hero-media img{
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 320px !important;
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+}
 
 /* ================= CARDS / GRIDS ================= */
 .card{
@@ -104,7 +152,6 @@ a:hover{ text-decoration: underline; }
   gap: 14px;
 }
 
-/* category images */
 .cat-img{
   height: 220px;
   background: #ddd;
@@ -117,7 +164,6 @@ a:hover{ text-decoration: underline; }
   object-fit: cover;
 }
 
-/* editorial images */
 .media{
   height: 260px;
   border-radius: 14px;
@@ -164,6 +210,7 @@ a:hover{ text-decoration: underline; }
   gap: 12px;
 }
 .full{ grid-column: 1 / -1; }
+
 .contact-form input,
 .contact-form textarea{
   width: 100%;
@@ -172,10 +219,12 @@ a:hover{ text-decoration: underline; }
   border-radius: 10px;
   font-family: inherit;
 }
+
 .contact-form textarea{
   min-height: 120px;
   resize: vertical;
 }
+
 .contact-map{
   margin-top: 14px;
   border-radius: 14px;
@@ -209,6 +258,9 @@ a:hover{ text-decoration: underline; }
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px){
+  .hero-inner{ grid-template-columns: 1fr; }
+  .hero-media{ height: 260px !important; max-height: 260px !important; }
+  .hero-media img{ max-height: 260px !important; }
   .grid-3, .grid-2{ grid-template-columns: 1fr; }
   .contact-form form{ grid-template-columns: 1fr; }
 }
