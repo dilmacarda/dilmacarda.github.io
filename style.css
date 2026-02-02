@@ -1,483 +1,137 @@
-/* =========================
-   SIMPLE CLEAN THEME
-========================= */
-
-:root{
-  --bg:#f5f5f5;
-  --white:#ffffff;
-  --text:#1f1f1f;
-  --muted:#666;
-  --line:#e6e6e6;
-  --shadow:0 8px 18px rgba(0,0,0,.08);
-  --radius:14px;
-  --brand:#ff5fa2;
-  --max:1100px;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
+/* ===== Clean theme (course-level, but looks good) ===== */
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family: Inter, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background:#f4f4f4;
+  color:#111;
+  line-height:1.6;
 }
 
-/* =========================
-   LAYOUT
-========================= */
-.section{
-  padding: 46px 18px;
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.section{padding:40px 0}
+
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Navbar */
+.navbar{
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+  position:sticky;top:0;z-index:10;
+}
+.navbar .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;
+}
+.logo{font-weight:800;letter-spacing:1px}
+.logo span{color:#ff5fa2}
+
+.nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.nav-links a{
+  font-weight:700;
+  font-size:14px;
+  padding:6px 10px;
+  border-radius:8px;
+  opacity:.85;
+}
+.nav-links a.active{background:#f1f1f1;opacity:1}
+.badge{
+  background:#111;color:#fff;
+  border-radius:999px;
+  padding:2px 8px;
+  font-size:12px;
 }
 
-.container{
-  max-width: var(--max);
-  margin: 0 auto;
-}
+/* Titles */
+h1{font-size:34px;margin-bottom:10px}
+h2{font-size:24px;margin-bottom:10px}
+p.muted{color:#666;margin-bottom:16px}
 
-/* =========================
-   NAVBAR
-========================= */
-.nav{
-  position: sticky;
-  top:0;
-  z-index:50;
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav-inner{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.brand{
-  text-decoration:none;
-  color: var(--text);
-  font-weight: 700;
-  letter-spacing:.06em;
-}
-
-.brand span{ color: var(--brand); }
-
-.menu{
-  display:flex;
-  gap: 10px;
-  align-items:center;
-}
-
-.menu a{
-  text-decoration:none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 14px;
-  opacity:.8;
-  padding: 6px 10px;
-  border-radius: 10px;
-}
-
-.menu a:hover,
-.menu a.active{
-  background:#f1f1f1;
-  opacity:1;
-}
-
-/* Cart badge */
-.cart-badge{
-  min-width: 22px;
-  height: 22px;
-  padding: 0 6px;
-  border-radius: 999px;
-  background: var(--text);
-  color: var(--white);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-/* =========================
-   BUTTONS
-========================= */
+/* Buttons */
 .btn{
   display:inline-block;
-  text-decoration:none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 14px;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:800;
+  font-size:14px;
+  border:none;
+  cursor:pointer;
 }
+.btn-dark{background:#111;color:#fff}
+.btn-light{background:#eaeaea;color:#111}
 
-.btn-primary{
-  background: var(--text);
-  color: var(--white);
-}
-
-.btn-light{
-  background:#f0f0f0;
-  color: var(--text);
-}
-
-/* =========================
-   TITLES
-========================= */
-.section-title{
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.section-sub{
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-/* =========================
-   HERO (ESKİ HAL)
-========================= */
-.hero{
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-inner{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 28px 18px;
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 18px;
-  align-items:center;
-}
-
-.hero h1{
-  font-size: 42px;
-}
-
-.hero p{
-  color: var(--muted);
-  margin-top: 10px;
-}
-
-.hero-actions{
-  margin-top: 16px;
-  display:flex;
-  gap:10px;
-}
-
-.hero-media{
-  height: 320px;
-  border-radius: var(--radius);
-  overflow:hidden;
-  background:#eaeaea;
-  border:1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-.hero-media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  object-position: center 35%;
-}
-
-/* =========================
-   GRIDS & CARDS
-========================= */
-.grid-3{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.grid-2{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.grid-4{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-
+/* Cards */
 .card{
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:14px;
   overflow:hidden;
 }
+.card .pad{padding:14px}
 
-.card-body{
-  padding: 14px;
-}
-
-.card h3{
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.card p{
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* small cards */
-.small-card{
-  background: var(--white);
-  border:1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding:14px;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-/* =========================
-   CATEGORIES
-========================= */
-.cat-img{
-  height: 220px;
-  overflow:hidden;
-}
-
-.cat-img img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-}
-
-/* =========================
-   EDITORIAL
-========================= */
-.media{
-  height: 260px;
-  border-radius: var(--radius);
-  overflow:hidden;
-  background:#eaeaea;
-  border:1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-.media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-}
-
-/* =========================
-   PRODUCTS
-========================= */
-.products-grid{
+/* Grid */
+.grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-}
-
-.product-img{
-  height: 220px;
-  background:#eaeaea;
-}
-
-.product-img img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-}
-
-.price{
-  font-weight: 800;
-  margin-top: 4px;
-}
-
-/* =========================
-   FAQ
-========================= */
-.faq details{
-  background: var(--white);
-  border:1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-  margin-bottom: 10px;
-  box-shadow: var(--shadow);
-}
-
-.faq summary{
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* =========================
-   NEWSLETTER
-========================= */
-.newsletter{
-  background: var(--white);
-  border:1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   gap:14px;
 }
-
-.newsletter input{
-  padding:10px 12px;
-  border-radius: 10px;
-  border:1px solid var(--line);
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){
+  .grid-3,.grid-2{grid-template-columns:1fr}
 }
 
-/* =========================
-   CONTACT PAGE FIX
-========================= */
-.contact-form{
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px;
+/* Images */
+.img-box{
+  height:220px;
+  background:#ddd;
+  overflow:hidden;
 }
-
-.contact-form form{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.contact-form .full{
-  grid-column: 1 / -1;
-}
-
-.contact-form input,
-.contact-form textarea{
+.img-box img{
   width:100%;
-  padding: 10px 12px;
-  font-family: inherit;
-  font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: #fafafa;
-  outline: none;
+  height:100%;
+  object-fit:cover;
 }
 
-.contact-form textarea{
-  resize: vertical;
-  min-height: 120px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus{
-  border-color: var(--text);
-  background: var(--white);
-}
-
-.contact-form button{
-  border: none;
-  cursor: pointer;
-  padding: 12px;
-  border-radius: 999px;
-  font-weight: 700;
-}
-
-.contact-map{
-  margin-top: 18px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-.contact-map iframe{
+/* About images (no crop) */
+.about-img img{
   width:100%;
-  height: 260px;
-  border:0;
+  height:auto;
+  display:block;
 }
 
-.contact-location{
-  margin: 10px 0;
-  font-weight: 600;
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer{
-  margin-top: 24px;
-  background: var(--white);
-  border-top: 1px solid var(--line);
-}
-
-.footer-inner{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 16px 18px;
+/* Cart list rows */
+.row{
   display:flex;
   justify-content:space-between;
-  color: var(--muted);
-  font-size: 14px;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border:1px solid #e6e6e6;
+  border-radius:12px;
+  background:#fff;
+}
+.total{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid #e6e6e6;
+  font-weight:900;
 }
 
-.footer a{
-  color: var(--muted);
-  text-decoration:none;
+/* Footer */
+.footer{
+  margin-top:20px;
+  background:#fff;
+  border-top:1px solid #e6e6e6;
 }
-.footer a:hover{ text-decoration: underline; }
-
-/* =========================
-   ABOUT PAGE IMAGES FIX (✅ KIRPMA YOK)
-========================= */
-.about-media{
-  width:100%;
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-.about-media img{
-  width:100%;
-  height:auto;            /* ✅ uzun foto yarım kalmaz */
-  display:block;
-  object-fit: contain;    /* ✅ kırpma yok */
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 900px){
-  .hero-inner{
-    grid-template-columns: 1fr;
-  }
-
-  .hero-media{
-    height: 260px;
-  }
-
-  .grid-3,
-  .grid-2,
-  .grid-4{
-    grid-template-columns: 1fr;
-  }
-
-  .newsletter{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .contact-form form{
-    grid-template-columns: 1fr;
-  }
+.footer .container{
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  color:#666;
+  font-size:14px;
 }
